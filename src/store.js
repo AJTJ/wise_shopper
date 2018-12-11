@@ -3,8 +3,6 @@ import thunk from "redux-thunk";
 
 import { reducers } from "./redux/index";
 
-console.log("store");
-
 export const store = createStore(
   reducers,
   applyMiddleware(thunk)
