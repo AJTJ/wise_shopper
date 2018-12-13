@@ -6,6 +6,11 @@ export const answers = {
     body: "Yes",
     outcome_ids: outcome_ids
   },
+  sometimes_answer: {
+    label: "",
+    body: "Sometimes",
+    outcome_ids: outcome_ids
+  },
   no_answer: {
     label: "",
     body: "No",

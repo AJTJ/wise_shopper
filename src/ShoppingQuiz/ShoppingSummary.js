@@ -3,7 +3,7 @@ import React from "react";
 export const ShoppingSummary = props => {
   return (
     <div>
-      This is the outcome
+      This is the summary of your shopping quiz
       <button
         onClick={() => {
           console.log("switching to wise quiz");

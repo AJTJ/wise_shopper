@@ -14,7 +14,7 @@ const ShoppingQuiz = props => {
   const [questionId, setQuestionId] = useState("need_question");
   const [answerIds, setAnswerIds] = useState(["yes_answer", "no_answer"]);
   const [answerKey, setAnswerKey] = useState(0);
-  const [outcomeIds, setOutcomeIds] = useState("bad gas");
+  const [outcomeIds, setOutcomeIds] = useState();
   const [view, setView] = useState("ShoppingQuestion");
 
   //variables
@@ -29,7 +29,7 @@ const ShoppingQuiz = props => {
 
   useEffect(
     () => {
-      console.log("hello");
+      console.log([quizData].shopping_quiz);
       if (
         currentQuizId === "wise_quiz" &&
         quizData[currentQuizId][step] === undefined
@@ -37,6 +37,7 @@ const ShoppingQuiz = props => {
         console.log("time to go to another summary");
         return;
       }
+
       if (
         currentQuizId === "shopping_quiz" &&
         quizData[currentQuizId][step] === undefined
@@ -45,11 +46,11 @@ const ShoppingQuiz = props => {
         setView("ShoppingSummary");
         setStep(0);
         return;
-      } else {
-        console.log("next question");
-        nextQuestion();
-        return;
       }
+
+      console.log("next question");
+      nextQuestion();
+      return;
     },
     [step]
   );
@@ -65,6 +66,7 @@ const ShoppingQuiz = props => {
           setView={setView}
           step={step}
           setAnswerKey={setAnswerKey}
+          currentQuizId={currentQuizId}
         />
       )}
       {view === "ShoppingOutcome" && (
