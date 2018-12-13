@@ -16,7 +16,7 @@ export const QuestionAnswer = props => {
       <button
         onClick={() => {
           props.setAnswerKey(props.answerKey);
-          props.setView("Outcome");
+          props.setView("ShoppingOutcome");
         }}
       >
         {body}

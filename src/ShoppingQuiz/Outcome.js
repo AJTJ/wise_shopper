@@ -13,7 +13,7 @@ export const Outcome = props => {
       <button
         onClick={() => {
           props.setStep(props.step + 1);
-          props.setView("QuestionView");
+          props.setView("ShoppingQuestion");
         }}
       >
         Next

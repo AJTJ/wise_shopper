@@ -1,21 +1,21 @@
 import React, { useState, useEffect } from "react";
 
 import { connect } from "react-redux";
-
 import { actions } from "../redux";
 
 import { QuestionAnswer } from "./QuestionAnswer";
 import { Outcome } from "./Outcome";
+import { ShoppingSummary } from "./ShoppingSummary";
 
 const ShoppingQuiz = props => {
   //state declarations
-  const [step, setStep] = useState(0);
   const [currentQuizId, setCurrentQuizId] = useState("shopping_quiz");
+  const [step, setStep] = useState(0);
   const [questionId, setQuestionId] = useState("need_question");
   const [answerIds, setAnswerIds] = useState(["yes_answer", "no_answer"]);
   const [answerKey, setAnswerKey] = useState(0);
   const [outcomeIds, setOutcomeIds] = useState("bad gas");
-  const [view, setView] = useState("QuestionView");
+  const [view, setView] = useState("ShoppingQuestion");
 
   //variables
   const quizData = props.quiz_data;
@@ -29,22 +29,21 @@ const ShoppingQuiz = props => {
 
   useEffect(
     () => {
+      console.log("hello");
       if (
         currentQuizId === "wise_quiz" &&
         quizData[currentQuizId][step] === undefined
       ) {
-        console.log("switching to final outcome");
-        setView("FinalOutcome");
+        console.log("time to go to another summary");
         return;
       }
-
       if (
         currentQuizId === "shopping_quiz" &&
         quizData[currentQuizId][step] === undefined
       ) {
-        console.log("switching to wise quiz");
-        setCurrentQuizId(quizData.wise_quiz);
-        nextQuestion();
+        console.log("switching to shopping summary");
+        setView("ShoppingSummary");
+        setStep(0);
         return;
       } else {
         console.log("next question");
@@ -57,8 +56,9 @@ const ShoppingQuiz = props => {
 
   return (
     <div>
-      {view === "QuestionView" ? (
+      {view === "ShoppingQuestion" && (
         <QuestionAnswer
+          view={view}
           questionId={questionId}
           answerIds={answerIds}
           quizData={quizData}
@@ -66,13 +66,21 @@ const ShoppingQuiz = props => {
           step={step}
           setAnswerKey={setAnswerKey}
         />
-      ) : (
+      )}
+      {view === "ShoppingOutcome" && (
         <Outcome
           outcomeIds={outcomeIds}
           setView={setView}
           step={step}
           setStep={setStep}
           answerKey={answerKey}
+          quizData={quizData}
+        />
+      )}
+      {view === "ShoppingSummary" && (
+        <ShoppingSummary
+          setCurrentQuizId={setCurrentQuizId}
+          setView={setView}
           quizData={quizData}
         />
       )}

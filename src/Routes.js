@@ -6,9 +6,9 @@ import WiseShopper from "./WiseShopper";
 
 export const Routes = () => (
   <Switch>
-    <Route path="/FocusYourself" component={FocusYourself} />
+    <Route exact path="/" component={FocusYourself} />
     <Route path="/ShoppingQuiz" component={ShoppingQuiz} />
     <Route path="/WiseShopper" component={WiseShopper} />
-    <Redirect to="/FocusYourself" />
+    <Redirect to="/" />
   </Switch>
 );
