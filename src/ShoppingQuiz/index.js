@@ -21,7 +21,6 @@ const ShoppingQuiz = props => {
   const quizData = props.quiz_data;
 
   const nextQuestion = () => {
-    console.log("nextQ hit");
     setQuestionId(quizData[currentQuizId][step].question);
     setAnswerIds(quizData[currentQuizId][step].answers);
     setOutcomeIds(quizData[currentQuizId][step].outcomes);
@@ -29,7 +28,6 @@ const ShoppingQuiz = props => {
 
   useEffect(
     () => {
-      console.log([quizData].shopping_quiz);
       if (
         currentQuizId === "wise_quiz" &&
         quizData[currentQuizId][step] === undefined
