@@ -1,8 +1,8 @@
 import React from "react";
 import { Route, Redirect, Switch } from "react-router-dom";
-import { FocusYourself } from "./Views/FocusYourself";
-import ShoppingQuiz from "./Views/ShoppingQuiz";
-import { WiseShopper } from "./Views/WiseShopper";
+import FocusYourself from "./FocusYourself";
+import ShoppingQuiz from "./ShoppingQuiz";
+import WiseShopper from "./WiseShopper";
 
 export const Routes = () => (
   <Switch>
