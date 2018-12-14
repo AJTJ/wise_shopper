@@ -9,6 +9,14 @@ export default props => {
       <p>{`This is the summary of your ${currentQuizId}`}</p>
       <button
         onClick={() => {
+          console.log("switching to focus");
+          history.push(`/`);
+        }}
+      >
+        Focus Yourself
+      </button>
+      <button
+        onClick={() => {
           console.log("switching to wise quiz");
           history.push(`/wise_quiz/1`);
         }}
