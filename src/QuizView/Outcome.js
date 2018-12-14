@@ -30,6 +30,10 @@ export const Outcome = props => {
   return (
     <div>
       <p>{outcome.body}</p>
+      {quizData[currentQuizId][stepMinusOne].tipIds !== undefined &&
+        quizData[currentQuizId][stepMinusOne].tipIds.map((tip, key) => (
+          <p key={key}>Tip: {quizData.tips_by_id[tip].body}</p>
+        ))}
       <button
         onClick={() => {
           nextStep();

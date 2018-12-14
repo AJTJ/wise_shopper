@@ -16,17 +16,9 @@ const QuizView = props => {
   let { currentQuizId, step } = props.match.params;
   const stepMinusOne = parseInt(step) - 1;
   const quizData = props.quiz_data;
-  // const { history } = props;
   let { questionId, answerIds, outcomeIds } = quizData[currentQuizId][
     stepMinusOne
   ];
-
-  // useEffect(() => {
-  //   if (!quizData[currentQuizId][stepMinusOne]) {
-  //     console.log("right here");
-  //     history.push(`/${currentQuizId}/summary`);
-  //   }
-  // });
 
   return (
     <div>
@@ -83,43 +75,3 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(QuizView);
-
-//state declarations
-// const [currentQuizId, setCurrentQuizId] = useState("shopping_quiz");
-// const [step, setStep] = useState(0);
-// const [questionId, setQuestionId] = useState("need_question");
-// const [answerIds, setAnswerIds] = useState(["yes_answer", "no_answer"]);
-// const [outcomeIds, setOutcomeIds] = useState();
-
-// const nextQuestion = () => {
-//   setQuestionId(quizData[currentQuizId][step].question);
-//   setAnswerIds(quizData[currentQuizId][step].answers);
-//   setOutcomeIds(quizData[currentQuizId][step].outcomes);
-// };
-
-// useEffect(
-//   () => {
-//     if (
-//       currentQuizId === "wise_quiz" &&
-//       quizData[currentQuizId][step] === undefined
-//     ) {
-//       console.log("time to go to another summary");
-//       return;
-//     }
-
-//     if (
-//       currentQuizId === "shopping_quiz" &&
-//       quizData[currentQuizId][step] === undefined
-//     ) {
-//       console.log("switching to shopping summary");
-//       setView("ShoppingSummary");
-//       setStep(0);
-//       return;
-//     }
-
-//     console.log("next question");
-//     nextQuestion();
-//     return;
-//   },
-//   [step]
-// );
