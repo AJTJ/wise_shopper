@@ -32,3 +32,5 @@ export const tips = {
     body: "Advertisers are always looking for new ways to sell you products."
   }
 };
+
+export const tip_ids = Object.keys(tips);

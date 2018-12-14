@@ -6,7 +6,7 @@ const FocusYourself = () => {
     <div>
       <p>Welcome</p>
       <p>Time to focus...</p>
-      <Link to="/shopping_quiz/0">Go to Shopping Quiz</Link>
+      <Link to="/shopping_quiz/1">Go to Shopping Quiz</Link>
     </div>
   );
 };

@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 
+import PropTypes from "prop-types";
+
 import { connect } from "react-redux";
 import { actions } from "../redux";
 
 import { QuestionAnswer } from "./QuestionAnswer";
 import { Outcome } from "./Outcome";
-import { ShoppingSummary } from "./ShoppingSummary";
 
 const QuizView = props => {
   const [answerKey, setAnswerKey] = useState(0);
@@ -13,8 +14,19 @@ const QuizView = props => {
 
   //variables
   let { currentQuizId, step } = props.match.params;
+  const stepMinusOne = parseInt(step) - 1;
   const quizData = props.quiz_data;
-  let { questionId, answerIds, outcomeIds } = quizData[currentQuizId][step];
+  // const { history } = props;
+  let { questionId, answerIds, outcomeIds } = quizData[currentQuizId][
+    stepMinusOne
+  ];
+
+  // useEffect(() => {
+  //   if (!quizData[currentQuizId][stepMinusOne]) {
+  //     console.log("right here");
+  //     history.push(`/${currentQuizId}/summary`);
+  //   }
+  // });
 
   return (
     <div>
@@ -25,7 +37,7 @@ const QuizView = props => {
           answerIds={answerIds}
           quizData={quizData}
           setView={setView}
-          step={step}
+          stepMinusOne={stepMinusOne}
           setAnswerKey={setAnswerKey}
           currentQuizId={currentQuizId}
           {...props}
@@ -36,16 +48,27 @@ const QuizView = props => {
           currentQuizId={currentQuizId}
           outcomeId={outcomeIds[answerKey]}
           setView={setView}
-          step={step}
+          stepMinusOne={stepMinusOne}
           quizData={quizData}
           {...props}
         />
       )}
-      {view === "ShoppingSummary" && (
-        <ShoppingSummary setView={setView} quizData={quizData} />
-      )}
     </div>
   );
+};
+
+QuizView.propTypes = {
+  currentQuizId: PropTypes.string,
+  step: PropTypes.string,
+  quizData: PropTypes.shape({
+    quiz_data: PropTypes.object
+  }),
+  history: PropTypes.shape({
+    action: PropTypes.string
+  }),
+  questionId: PropTypes.string,
+  answerIds: PropTypes.array,
+  outcomeIds: PropTypes.array
 };
 
 const mapStateToProps = state => {

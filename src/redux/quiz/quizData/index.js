@@ -3,7 +3,8 @@ import { answer_ids, answers } from "./answers";
 import { outcome_ids, outcomes } from "./outcomes";
 import { shopping_quiz } from "./shopping";
 import { wise_quiz } from "./wise";
-import { tips } from "./tips";
+import { tips, tip_ids } from "./tips";
+import { summaries } from "./summaries";
 
 const defaultState = {
   quiz_data: {
@@ -12,6 +13,8 @@ const defaultState = {
     question_ids: question_ids,
     answer_ids: answer_ids,
     outcome_ids: outcome_ids,
+    tip_ids: tip_ids,
+    summaries: summaries,
     tips_by_id: {
       ...tips
     },
