@@ -1,11 +1,12 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const FocusYourself = () => {
   return (
     <div>
       <p>Welcome</p>
       <p>Time to focus...</p>
-      <a href="/ShoppingQuiz">Go to Shopping Quiz</a>
+      <Link to="/shopping_quiz/0">Go to Shopping Quiz</Link>
     </div>
   );
 };

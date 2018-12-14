@@ -1,17 +1,17 @@
 export const shopping_quiz = [
   {
-    question: "need_question",
-    answers: ["yes_answer", "no_answer"],
-    outcomes: ["need_definition", "want_definition"]
+    questionId: "need_question",
+    answerIds: ["yes_answer", "no_answer"],
+    outcomeIds: ["need_definition", "want_definition"]
   },
   {
-    question: "afford_question",
-    answers: ["yes_answer", "no_answer"],
-    outcomes: ["yes_afford", "no_afford"]
+    questionId: "afford_question",
+    answerIds: ["yes_answer", "no_answer"],
+    outcomeIds: ["yes_afford", "no_afford"]
   },
   {
-    question: "value_question",
-    answers: ["yes_answer", "no_answer"],
-    outcomes: ["yes_value", "no_value"]
+    questionId: "value_question",
+    answerIds: ["yes_answer", "no_answer"],
+    outcomeIds: ["yes_value", "no_value"]
   }
 ];

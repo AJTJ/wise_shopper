@@ -7,9 +7,9 @@ export const ShoppingSummary = props => {
       <button
         onClick={() => {
           console.log("switching to wise quiz");
-          props.setCurrentQuizId(props.quizData.wise_quiz);
+          props.history.push(`/wise_quiz/0`);
+
           props.setView("ShoppingQuestion");
-          //any other resets that need to be done
         }}
       >
         Next!
