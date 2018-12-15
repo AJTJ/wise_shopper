@@ -1,30 +1,30 @@
-import { question_ids, questions } from "./questions";
-import { answer_ids, answers } from "./answers";
-import { outcome_ids, outcomes } from "./outcomes";
-import { shopping_quiz } from "./shopping";
-import { wise_quiz } from "./wise";
-import { tips, tip_ids } from "./tips";
+import { questionIds, questions } from "./questions";
+import { answerIds, answers } from "./answers";
+import { outcomeIds, outcomes } from "./outcomes";
+import { shoppingQuiz } from "./shoppingQuiz";
+import { wiseQuiz } from "./wiseQuiz";
+import { tips, tipIds } from "./tips";
 import { summaries } from "./summaries";
 
 const defaultState = {
-  quiz_data: {
-    shopping_quiz: shopping_quiz,
-    wise_quiz: wise_quiz,
-    question_ids: question_ids,
-    answer_ids: answer_ids,
-    outcome_ids: outcome_ids,
-    tip_ids: tip_ids,
+  quizData: {
+    shoppingQuiz: shoppingQuiz,
+    wiseQuiz: wiseQuiz,
+    questionIds: questionIds,
+    answerIds: answerIds,
+    outcomeIds: outcomeIds,
+    tipIds: tipIds,
     summaries: summaries,
-    tips_by_id: {
+    tipsById: {
       ...tips
     },
-    questions_by_id: {
+    questionsById: {
       ...questions
     },
-    answers_by_id: {
+    answersById: {
       ...answers
     },
-    outcomes_by_id: {
+    outcomesById: {
       ...outcomes
     }
   }

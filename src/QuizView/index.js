@@ -9,26 +9,20 @@ import { QuestionAnswer } from "./QuestionAnswer";
 import { Outcome } from "./Outcome";
 
 const QuizView = props => {
-  console.log("quizview props", props);
   const [answerKey, setAnswerKey] = useState(0);
   const [view, setView] = useState("ShoppingQuestion");
 
   //variables
   let { currentQuizId, step } = props.match.params;
   const stepMinusOne = parseInt(step) - 1;
-  const { quizData, addScore } = props;
+  const { quizData } = props;
   let { questionId, answerIds, outcomeIds } = quizData[currentQuizId][
     stepMinusOne
   ];
 
-  useEffect(
-    () => {
-      if (currentQuizId === "wise_quiz") {
-        addScore(`${currentQuizId}_score`, answerIds[answerKey]);
-      }
-    },
-    [answerKey]
-  );
+  useEffect(() => {
+    console.log(props.wiseQuizScore);
+  });
 
   return (
     <div>
@@ -74,10 +68,9 @@ QuizView.propTypes = {
 };
 
 const mapStateToProps = state => {
-  console.log(state);
   return {
-    quizData: state.quizReducer.quiz_data,
-    wiseQuizScore: state.scoreReducer.wise_quiz_score
+    quizData: state.quizReducer.quizData,
+    wiseQuizScore: state.scoreReducer.wiseQuizScore
   };
 };
 

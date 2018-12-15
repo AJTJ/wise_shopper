@@ -1,21 +1,21 @@
-import { outcome_ids } from "./outcomes";
+import { outcomeIds } from "./outcomes";
 
 export const answers = {
-  yes_answer: {
+  yesAnswer: {
     label: "",
     body: "Yes",
-    outcome_ids: outcome_ids
+    outcomeIds: outcomeIds
   },
-  sometimes_answer: {
+  sometimesAnswer: {
     label: "",
     body: "Sometimes",
-    outcome_ids: outcome_ids
+    outcomeIds: outcomeIds
   },
-  no_answer: {
+  noAnswer: {
     label: "",
     body: "No",
-    outcome_ids: outcome_ids
+    outcomeIds: outcomeIds
   }
 };
 
-export const answer_ids = Object.keys(answers);
+export const answerIds = Object.keys(answers);

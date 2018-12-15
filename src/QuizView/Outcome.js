@@ -11,7 +11,7 @@ export const Outcome = props => {
     setView
   } = props;
 
-  const outcome = quizData.outcomes_by_id[outcomeId];
+  const outcome = quizData.outcomesById[outcomeId];
   const visualStep = parseInt(stepMinusOne) + 1;
 
   let nextStep = () => {
@@ -29,7 +29,7 @@ export const Outcome = props => {
       <p>{outcome.body}</p>
       {quizData[currentQuizId][stepMinusOne].tipIds !== undefined &&
         quizData[currentQuizId][stepMinusOne].tipIds.map((tip, key) => (
-          <p key={key}>Tip: {quizData.tips_by_id[tip].body}</p>
+          <p key={key}>Tip: {quizData.tipsById[tip].body}</p>
         ))}
       <button
         onClick={() => {

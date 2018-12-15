@@ -1,5 +1,5 @@
 export const summaries = {
-  wise_quiz: {
+  wiseQuiz: {
     yes: {
       body:
         "You make the most of your shopping dollar but remember there’s always room to learn more."

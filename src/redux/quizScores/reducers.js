@@ -1,24 +1,18 @@
 import * as constants from "./constants";
 
 const defaultState = {
-  wise_quiz_score: {
-    yes_answer: 0,
-    sometimes_answer: 0,
-    no_answer: 0
-  }
+  wiseQuizScore: { 0: 0, 1: 1, 2: 2, 3: 0, 4: 0 }
 };
 
 const scoreReducer = (state = defaultState, action) => {
   switch (action.type) {
     case constants.addScore:
-      console.log("the action", action);
-      const { quiz, answer, count } = action;
-      const currentScore = state[quiz][answer];
+      const { quiz, question, answer } = action;
       return {
         ...state,
         [quiz]: {
           ...state[quiz],
-          [answer]: currentScore + count
+          [question]: answer
         }
       };
     case constants.resetScore:

@@ -1,8 +1,16 @@
 import React from "react";
 
 export const QuestionAnswer = props => {
-  const { quizData, questionId, setAnswerKey, answerIds, setView } = props;
-  const question = quizData.questions_by_id[questionId];
+  const {
+    quizData,
+    questionId,
+    setAnswerKey,
+    answerIds,
+    setView,
+    addScore,
+    stepMinusOne
+  } = props;
+  const question = quizData.questionsById[questionId];
 
   const QuestionDisplay = props => {
     const body = props.body;
@@ -10,11 +18,21 @@ export const QuestionAnswer = props => {
   };
 
   const AnswerDisplay = props => {
-    const { body, answerKey, setAnswerKey, setView } = props;
+    const {
+      body,
+      answerKey,
+      setAnswerKey,
+      setView,
+      currentQuizId,
+      stepMinusOne
+    } = props;
     return (
       <button
         onClick={() => {
           setAnswerKey(answerKey);
+          if (currentQuizId === "wiseQuiz") {
+            addScore(`${currentQuizId}Score`, stepMinusOne, answerKey);
+          }
           setView("ShoppingOutcome");
         }}
       >
@@ -32,7 +50,9 @@ export const QuestionAnswer = props => {
           setView={setView}
           setAnswerKey={setAnswerKey}
           answerKey={key}
-          body={quizData.answers_by_id[current_id].body}
+          stepMinusOne={stepMinusOne}
+          body={quizData.answersById[current_id].body}
+          {...props}
         />
       ))}
     </React.Fragment>

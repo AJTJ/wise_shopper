@@ -1,51 +1,51 @@
-import { answer_ids } from "./answers";
+import { answerIds } from "./answers";
 
 export const questions = {
-  need_question: {
+  needQuestion: {
     title: "",
     body: "Do I need it?",
-    answer_ids: answer_ids
+    answerIds: answerIds
   },
-  afford_question: {
+  affordQuestion: {
     title: "",
     body: "Can I afford it?",
-    answer_ids: answer_ids
+    answerIds: answerIds
   },
-  value_question: {
+  valueQuestion: {
     title: "",
     body: "Does it add value to my life?",
-    answer_ids: answer_ids
+    answerIds: answerIds
   },
-  company_research_question: {
+  companyResearchQuestion: {
     title: "",
     body:
       "Before making a major purchase, I research the product, the company that makes it, and find reviews from people who’ve purchased it.",
-    answer_ids: answer_ids
+    answerIds: answerIds
   },
-  grocery_list_question: {
+  groceryListQuestion: {
     title: "",
     body:
       "I bring a list grocery shopping, so I won’t be tempted to buy things I do not need.",
-    answer_ids: answer_ids
+    answerIds: answerIds
   },
-  return_refund_question: {
+  returnRefundQuestion: {
     title: "",
     body:
       "I ask about a store’s online retailers return and refund policy before I buy things to make sure I can get a replacement or refund if I’m not satisfied with my purchase.",
-    answer_ids: answer_ids
+    answerIds: answerIds
   },
-  coupons_comparison_question: {
+  couponsComparisonQuestion: {
     title: "",
     body:
       "I use coupons, look for sales and compare products at different stores before I buy.",
-    answer_ids: answer_ids
+    answerIds: answerIds
   },
-  food_comparison_question: {
+  foodComparisonQuestion: {
     title: "",
     body:
       "When I shop for food, I compare the size, price and brand to try and find the best deal.",
-    answer_ids: answer_ids
+    answerIds: answerIds
   }
 };
 
-export const question_ids = Object.keys(questions);
+export const questionIds = Object.keys(questions);

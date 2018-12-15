@@ -1,15 +1,25 @@
 import React from "react";
+import WiseSummary from "./WiseSummary";
+import ShoppingSummary from "./ShoppingSummary";
 
-export default props => {
-  console.log(props);
+import { connect } from "react-redux";
+import { actions } from "../redux";
+
+const SummaryView = props => {
   const { history } = props;
   const currentQuizId = props.match.params.currentQuizId;
   return (
-    <div>
+    <React.Fragment>
       <p>{`This is the summary of your ${currentQuizId}`}</p>
+      {currentQuizId === "wiseQuiz" && (
+        <WiseSummary currentQuizId={currentQuizId} {...props} />
+      )}
+      {currentQuizId === "shoppingQuiz" && (
+        <ShoppingSummary currentQuizId={currentQuizId} {...props} />
+      )}
+
       <button
         onClick={() => {
-          console.log("switching to focus");
           history.push(`/`);
         }}
       >
@@ -17,20 +27,34 @@ export default props => {
       </button>
       <button
         onClick={() => {
-          console.log("switching to wise quiz");
-          history.push(`/wise_quiz/1`);
+          history.push(`/wiseQuiz/1`);
         }}
       >
         Wise Quiz
       </button>
       <button
         onClick={() => {
-          console.log("switching to shopping quiz");
-          history.push(`/shopping_quiz/1`);
+          history.push(`/shoppingQuiz/1`);
         }}
       >
         Shopping Quiz
       </button>
-    </div>
+    </React.Fragment>
   );
 };
+
+const mapStateToProps = state => {
+  return {
+    quizData: state.quizReducer.quizData,
+    wiseQuizScore: state.scoreReducer.wiseQuizScore
+  };
+};
+
+const mapDispatchToProps = {
+  ...actions
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(SummaryView);

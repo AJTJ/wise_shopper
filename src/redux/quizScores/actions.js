@@ -1,10 +1,10 @@
 import * as constants from "./constants";
 
-const addScore = (quiz, answer, count = 1) => ({
+const addScore = (quiz, question, answer = 1) => ({
   type: constants.addScore,
   quiz: quiz,
-  answer: answer,
-  count: count
+  question: question,
+  answer: answer
 });
 
 const resetScore = () => ({

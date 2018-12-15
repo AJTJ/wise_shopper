@@ -12,8 +12,6 @@ const actions = {
   ...quizScores.actions
 };
 
-console.log(allReducers);
-
 const reducers = combineReducers(allReducers);
 
 export { reducers, actions };
