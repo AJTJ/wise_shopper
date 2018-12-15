@@ -5,6 +5,4 @@ const quizReducer = (state = defaultState, action) => {
   return state;
 };
 
-export default {
-  quizReducer
-};
+export default { quizReducer };

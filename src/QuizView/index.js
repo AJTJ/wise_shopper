@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import PropTypes from "prop-types";
 
@@ -9,16 +9,26 @@ import { QuestionAnswer } from "./QuestionAnswer";
 import { Outcome } from "./Outcome";
 
 const QuizView = props => {
+  console.log("quizview props", props);
   const [answerKey, setAnswerKey] = useState(0);
   const [view, setView] = useState("ShoppingQuestion");
 
   //variables
   let { currentQuizId, step } = props.match.params;
   const stepMinusOne = parseInt(step) - 1;
-  const quiz_data = props.quiz_data;
-  let { questionId, answerIds, outcomeIds } = quiz_data[currentQuizId][
+  const { quizData, addScore } = props;
+  let { questionId, answerIds, outcomeIds } = quizData[currentQuizId][
     stepMinusOne
   ];
+
+  useEffect(
+    () => {
+      if (currentQuizId === "wise_quiz") {
+        addScore(`${currentQuizId}_score`, answerIds[answerKey]);
+      }
+    },
+    [answerKey]
+  );
 
   return (
     <div>
@@ -27,7 +37,7 @@ const QuizView = props => {
           view={view}
           questionId={questionId}
           answerIds={answerIds}
-          quiz_data={quiz_data}
+          quizData={quizData}
           setView={setView}
           stepMinusOne={stepMinusOne}
           setAnswerKey={setAnswerKey}
@@ -41,7 +51,7 @@ const QuizView = props => {
           outcomeId={outcomeIds[answerKey]}
           setView={setView}
           stepMinusOne={stepMinusOne}
-          quiz_data={quiz_data}
+          quizData={quizData}
           {...props}
         />
       )}
@@ -52,8 +62,8 @@ const QuizView = props => {
 QuizView.propTypes = {
   currentQuizId: PropTypes.string,
   step: PropTypes.string,
-  quiz_data: PropTypes.shape({
-    quiz_data: PropTypes.object
+  quizData: PropTypes.shape({
+    quizData: PropTypes.object
   }),
   history: PropTypes.shape({
     action: PropTypes.string
@@ -64,7 +74,11 @@ QuizView.propTypes = {
 };
 
 const mapStateToProps = state => {
-  return { quiz_data: state.quizReducer.quiz_data };
+  console.log(state);
+  return {
+    quizData: state.quizReducer.quiz_data,
+    wiseQuizScore: state.scoreReducer.wise_quiz_score
+  };
 };
 
 const mapDispatchToProps = {

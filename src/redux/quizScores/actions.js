@@ -1,11 +1,17 @@
 import * as constants from "./constants";
 
-const addScore = (chart, count = 1) => ({
+const addScore = (quiz, answer, count = 1) => ({
   type: constants.addScore,
-  chart: chart,
+  quiz: quiz,
+  answer: answer,
   count: count
 });
 
+const resetScore = () => ({
+  type: constants.resetScore
+});
+
 export default {
-  addScore
+  addScore,
+  resetScore
 };
