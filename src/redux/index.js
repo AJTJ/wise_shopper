@@ -1,12 +1,15 @@
 import { combineReducers } from "redux";
-import * as quiz from "./quiz/index";
+import * as quizData from "./quizData";
+import * as quizScores from "./quizScores";
 
 const allReducers = {
-  ...quiz.reducer
+  ...quizData.reducer,
+  ...quizScores.reducer
 };
 
 const actions = {
-  ...quiz.actions
+  ...quizData.actions,
+  ...quizScores.actions
 };
 
 const reducers = combineReducers(allReducers);

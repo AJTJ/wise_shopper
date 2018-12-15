@@ -1,8 +1,8 @@
 import React from "react";
 
 export const QuestionAnswer = props => {
-  const { quizData, questionId, setAnswerKey, answerIds, setView } = props;
-  const question = quizData.questions_by_id[questionId];
+  const { quiz_data, questionId, setAnswerKey, answerIds, setView } = props;
+  const question = quiz_data.questions_by_id[questionId];
 
   const QuestionDisplay = props => {
     const body = props.body;
@@ -32,7 +32,7 @@ export const QuestionAnswer = props => {
           setView={setView}
           setAnswerKey={setAnswerKey}
           answerKey={key}
-          body={quizData.answers_by_id[current_id].body}
+          body={quiz_data.answers_by_id[current_id].body}
         />
       ))}
     </React.Fragment>

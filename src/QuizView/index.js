@@ -15,8 +15,8 @@ const QuizView = props => {
   //variables
   let { currentQuizId, step } = props.match.params;
   const stepMinusOne = parseInt(step) - 1;
-  const quizData = props.quiz_data;
-  let { questionId, answerIds, outcomeIds } = quizData[currentQuizId][
+  const quiz_data = props.quiz_data;
+  let { questionId, answerIds, outcomeIds } = quiz_data[currentQuizId][
     stepMinusOne
   ];
 
@@ -27,7 +27,7 @@ const QuizView = props => {
           view={view}
           questionId={questionId}
           answerIds={answerIds}
-          quizData={quizData}
+          quiz_data={quiz_data}
           setView={setView}
           stepMinusOne={stepMinusOne}
           setAnswerKey={setAnswerKey}
@@ -41,7 +41,7 @@ const QuizView = props => {
           outcomeId={outcomeIds[answerKey]}
           setView={setView}
           stepMinusOne={stepMinusOne}
-          quizData={quizData}
+          quiz_data={quiz_data}
           {...props}
         />
       )}
@@ -52,7 +52,7 @@ const QuizView = props => {
 QuizView.propTypes = {
   currentQuizId: PropTypes.string,
   step: PropTypes.string,
-  quizData: PropTypes.shape({
+  quiz_data: PropTypes.shape({
     quiz_data: PropTypes.object
   }),
   history: PropTypes.shape({

@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 export const Outcome = props => {
   console.log(props);
   const {
-    quizData,
+    quiz_data,
     outcomeId,
     currentQuizId,
     stepMinusOne,
@@ -12,27 +12,26 @@ export const Outcome = props => {
     setView
   } = props;
 
-  const outcome = quizData.outcomes_by_id[outcomeId];
+  const outcome = quiz_data.outcomes_by_id[outcomeId];
   const visualStep = parseInt(stepMinusOne) + 1;
 
   let nextStep = () => {
-    if (quizData[currentQuizId][stepMinusOne + 1] === undefined) {
+    console.log(visualStep + 1, quiz_data[currentQuizId].length);
+    if (visualStep + 1 > quiz_data[currentQuizId].length) {
       history.push(`/summary/${currentQuizId}/`);
-      setView("ShoppingQuestion");
-      return;
     } else {
       history.push(`/${currentQuizId}/${visualStep + 1}`);
-      setView("ShoppingQuestion");
-      return;
     }
+    setView("ShoppingQuestion");
+    return;
   };
 
   return (
     <div>
       <p>{outcome.body}</p>
-      {quizData[currentQuizId][stepMinusOne].tipIds !== undefined &&
-        quizData[currentQuizId][stepMinusOne].tipIds.map((tip, key) => (
-          <p key={key}>Tip: {quizData.tips_by_id[tip].body}</p>
+      {quiz_data[currentQuizId][stepMinusOne].tipIds !== undefined &&
+        quiz_data[currentQuizId][stepMinusOne].tipIds.map((tip, key) => (
+          <p key={key}>Tip: {quiz_data.tips_by_id[tip].body}</p>
         ))}
       <button
         onClick={() => {
@@ -46,7 +45,7 @@ export const Outcome = props => {
 };
 
 Outcome.propTypes = {
-  quizData: PropTypes.shape({
+  quiz_data: PropTypes.shape({
     quiz_data: PropTypes.object
   }),
   outcomeId: PropTypes.string,
