@@ -1,6 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
 
+//MUI
+import { Button } from "@material-ui/core";
+
 export const Outcome = props => {
   const {
     quizData,
@@ -25,20 +28,20 @@ export const Outcome = props => {
   };
 
   return (
-    <div>
-      <p>{outcome.body}</p>
+    <React.Fragment>
+      <h1>{outcome.body}</h1>
       {quizData[currentQuizId][stepMinusOne].tipIds !== undefined &&
         quizData[currentQuizId][stepMinusOne].tipIds.map((tip, key) => (
           <p key={key}>Tip: {quizData.tipsById[tip].body}</p>
         ))}
-      <button
+      <Button
         onClick={() => {
           nextStep();
         }}
       >
-        Next
-      </button>
-    </div>
+        <h2>Next</h2>
+      </Button>
+    </React.Fragment>
   );
 };
 

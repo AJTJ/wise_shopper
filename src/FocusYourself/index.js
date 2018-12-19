@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-// import { Link } from "react-router-dom";
 import TextTrail from "./TextTrail";
 // import { BasicTransition } from "../reactTransitions/transitions";
 
@@ -27,7 +26,7 @@ const FocusYourself = () => {
   const smileText = ":)".split(" ");
 
   useEffect(() => {
-    console.log(fadeTime);
+    // console.log(fadeTime);
   });
 
   useEffect(() => {
@@ -81,13 +80,11 @@ const FocusYourself = () => {
 
   return (
     <React.Fragment>
-      {/* <BasicTransition> */}
       <Fade in={menuDisplay} timeout={3000}>
         <Menu style={{ visibility: menuDisplay ? null : "hidden" }} />
       </Fade>
       <Grid
         container
-        fluid
         justify="center"
         alignItems="center"
         style={{ height: "100vh", paddingBottom: "200px" }}
@@ -116,11 +113,8 @@ const FocusYourself = () => {
           <TextTrail items={smileText} Component={"h1"} fadeProp={fadeTime} />
         )}
       </Grid>
-      {/* </BasicTransition> */}
     </React.Fragment>
   );
 };
 
 export default FocusYourself;
-
-/* <Link to="/shoppingQuiz/1">Go to Shopping Quiz</Link> */

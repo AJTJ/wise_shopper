@@ -1,6 +1,7 @@
 import React from "react";
 
-// import { BasicTransition } from "../reactTransitions/transitions";
+//MUI
+import { Button, Grid } from "@material-ui/core";
 
 export const QuestionAnswer = props => {
   const {
@@ -16,7 +17,7 @@ export const QuestionAnswer = props => {
 
   const QuestionDisplay = props => {
     const body = props.body;
-    return <p>{body}</p>;
+    return <h1>{body}</h1>;
   };
 
   const AnswerDisplay = props => {
@@ -29,7 +30,7 @@ export const QuestionAnswer = props => {
       stepMinusOne
     } = props;
     return (
-      <button
+      <Button
         onClick={() => {
           setAnswerKey(answerKey);
           if (currentQuizId === "wiseQuiz") {
@@ -38,25 +39,28 @@ export const QuestionAnswer = props => {
           setView("ShoppingOutcome");
         }}
       >
-        {body}
-      </button>
+        <h2>{body}</h2>
+      </Button>
     );
   };
 
   return (
     <React.Fragment>
       <QuestionDisplay body={question.body} />
-      {answerIds.map((current_id, key) => (
-        <AnswerDisplay
-          key={key}
-          setView={setView}
-          setAnswerKey={setAnswerKey}
-          answerKey={key}
-          stepMinusOne={stepMinusOne}
-          body={quizData.answersById[current_id].body}
-          {...props}
-        />
-      ))}
+
+      <Grid>
+        {answerIds.map((current_id, key) => (
+          <AnswerDisplay
+            key={key}
+            setView={setView}
+            setAnswerKey={setAnswerKey}
+            answerKey={key}
+            stepMinusOne={stepMinusOne}
+            body={quizData.answersById[current_id].body}
+            {...props}
+          />
+        ))}
+      </Grid>
     </React.Fragment>
   );
 };

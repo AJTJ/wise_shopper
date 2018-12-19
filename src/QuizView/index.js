@@ -1,14 +1,19 @@
 import React, { useState, useEffect } from "react";
-
 import PropTypes from "prop-types";
 
+//redux
 import { connect } from "react-redux";
 import { actions } from "../redux";
 
+//quiz components
 import { QuestionAnswer } from "./QuestionAnswer";
 import { Outcome } from "./Outcome";
 
-// import { BasicTransition } from "../reactTransitions/transitions";
+//other components
+import Menu from "../components/Menu";
+
+//MUI
+import { Grid } from "@material-ui/core";
 
 const QuizView = props => {
   const [answerKey, setAnswerKey] = useState(0);
@@ -27,33 +32,47 @@ const QuizView = props => {
   });
 
   return (
-    <div>
-      {view === "ShoppingQuestion" && (
-        <React.Fragment>
-          <QuestionAnswer
-            view={view}
-            questionId={questionId}
-            answerIds={answerIds}
-            quizData={quizData}
+    <React.Fragment>
+      <Menu />
+      <Grid
+        container
+        justify="center"
+        alignItems="center"
+        direction="column"
+        style={{
+          height: "100vh",
+          paddingBottom: "200px",
+          maxWidth: "500px",
+          margin: "0 auto"
+        }}
+      >
+        {view === "ShoppingQuestion" && (
+          <React.Fragment>
+            <QuestionAnswer
+              view={view}
+              questionId={questionId}
+              answerIds={answerIds}
+              quizData={quizData}
+              setView={setView}
+              stepMinusOne={stepMinusOne}
+              setAnswerKey={setAnswerKey}
+              currentQuizId={currentQuizId}
+              {...props}
+            />
+          </React.Fragment>
+        )}
+        {view === "ShoppingOutcome" && (
+          <Outcome
+            currentQuizId={currentQuizId}
+            outcomeId={outcomeIds[answerKey]}
             setView={setView}
             stepMinusOne={stepMinusOne}
-            setAnswerKey={setAnswerKey}
-            currentQuizId={currentQuizId}
+            quizData={quizData}
             {...props}
           />
-        </React.Fragment>
-      )}
-      {view === "ShoppingOutcome" && (
-        <Outcome
-          currentQuizId={currentQuizId}
-          outcomeId={outcomeIds[answerKey]}
-          setView={setView}
-          stepMinusOne={stepMinusOne}
-          quizData={quizData}
-          {...props}
-        />
-      )}
-    </div>
+        )}
+      </Grid>
+    </React.Fragment>
   );
 };
 
