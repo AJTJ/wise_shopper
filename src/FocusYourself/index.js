@@ -134,7 +134,7 @@ const FocusYourself = () => {
               setMenuIndicator(false);
             }}
           >
-            <p>(show the menu)</p>
+            <p style={{ color: "rgba(0,0,0,0.5)" }}>(show the menu)</p>
           </ButtonBase>
         </Fade>
       </Grid>

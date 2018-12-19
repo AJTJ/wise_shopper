@@ -5,14 +5,7 @@ import PropTypes from "prop-types";
 import { Button } from "@material-ui/core";
 
 export const Outcome = props => {
-  const {
-    quizData,
-    outcomeId,
-    currentQuizId,
-    stepMinusOne,
-    history,
-    setView
-  } = props;
+  const { quizData, outcomeId, currentQuizId, stepMinusOne, history } = props;
 
   const outcome = quizData.outcomesById[outcomeId];
   const visualStep = parseInt(stepMinusOne) + 1;
@@ -21,9 +14,8 @@ export const Outcome = props => {
     if (visualStep + 1 > quizData[currentQuizId].length) {
       history.push(`/summary/${currentQuizId}/`);
     } else {
-      history.push(`/${currentQuizId}/${visualStep + 1}`);
+      history.push(`/${currentQuizId}/${visualStep + 1}/question`);
     }
-    setView("ShoppingQuestion");
     return;
   };
 

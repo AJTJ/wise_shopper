@@ -17,10 +17,10 @@ import { Grid } from "@material-ui/core";
 
 const QuizView = props => {
   const [answerKey, setAnswerKey] = useState(0);
-  const [view, setView] = useState("ShoppingQuestion");
+  // const [view, setView] = useState(props.startView || "questionView");
 
   //variables
-  let { currentQuizId, step } = props.match.params;
+  let { currentQuizId, step, view } = props.match.params;
   const stepMinusOne = parseInt(step) - 1;
   const { quizData } = props;
   let { questionId, answerIds, outcomeIds } = quizData[currentQuizId][
@@ -46,14 +46,14 @@ const QuizView = props => {
           margin: "0 auto"
         }}
       >
-        {view === "ShoppingQuestion" && (
+        {view === "question" && (
           <React.Fragment>
             <QuestionAnswer
               view={view}
               questionId={questionId}
               answerIds={answerIds}
               quizData={quizData}
-              setView={setView}
+              // setView={setView}
               stepMinusOne={stepMinusOne}
               setAnswerKey={setAnswerKey}
               currentQuizId={currentQuizId}
@@ -61,11 +61,11 @@ const QuizView = props => {
             />
           </React.Fragment>
         )}
-        {view === "ShoppingOutcome" && (
+        {view === "answer" && (
           <Outcome
             currentQuizId={currentQuizId}
             outcomeId={outcomeIds[answerKey]}
-            setView={setView}
+            // setView={setView}
             stepMinusOne={stepMinusOne}
             quizData={quizData}
             {...props}

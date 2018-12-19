@@ -8,7 +8,7 @@ export const Routes = () => (
   <Switch>
     <Route exact path="/" component={FocusYourself} />
     <Route exact path="/summary/:currentQuizId/" component={Summary} />
-    <Route path="/:currentQuizId/:step/" component={QuizView} />
+    <Route path="/:currentQuizId/:step/:view" component={QuizView} />
     <Redirect to="/" />
   </Switch>
 );

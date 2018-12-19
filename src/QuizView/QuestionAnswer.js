@@ -9,7 +9,7 @@ export const QuestionAnswer = props => {
     questionId,
     setAnswerKey,
     answerIds,
-    setView,
+
     addScore,
     stepMinusOne
   } = props;
@@ -25,7 +25,6 @@ export const QuestionAnswer = props => {
       body,
       answerKey,
       setAnswerKey,
-      setView,
       currentQuizId,
       stepMinusOne
     } = props;
@@ -36,7 +35,7 @@ export const QuestionAnswer = props => {
           if (currentQuizId === "wiseQuiz") {
             addScore(`${currentQuizId}Score`, stepMinusOne, answerKey);
           }
-          setView("ShoppingOutcome");
+          props.history.push(`/${currentQuizId}/${stepMinusOne + 1}/answer`);
         }}
       >
         <h2>{body}</h2>
@@ -52,7 +51,6 @@ export const QuestionAnswer = props => {
         {answerIds.map((current_id, key) => (
           <AnswerDisplay
             key={key}
-            setView={setView}
             setAnswerKey={setAnswerKey}
             answerKey={key}
             stepMinusOne={stepMinusOne}

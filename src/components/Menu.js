@@ -14,10 +14,10 @@ const Menu = props => {
     return <Link to="/bleh" {...props} />;
   };
   const shoppingLink = props => {
-    return <Link to="/shoppingQuiz/1" {...props} />;
+    return <Link to="/shoppingQuiz/1/question" {...props} />;
   };
   const wiseLink = props => {
-    return <Link to="/wiseQuiz/1" {...props} />;
+    return <Link to="/wiseQuiz/1/question" {...props} />;
   };
   return (
     <AppBar style={props.style} position="static" color="default">
