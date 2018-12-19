@@ -21,10 +21,28 @@ export const Outcome = props => {
 
   return (
     <React.Fragment>
-      <h1>{outcome.body}</h1>
+      <h1>
+        {outcome.body}
+        {outcome.link && (
+          <React.Fragment>
+            {" "}
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ color: "red", textDecoration: "none" }}
+              href={outcome.link}
+            >
+              here.
+            </a>
+          </React.Fragment>
+        )}
+      </h1>
+
       {quizData[currentQuizId][stepMinusOne].tipIds !== undefined &&
         quizData[currentQuizId][stepMinusOne].tipIds.map((tip, key) => (
-          <p key={key}>Tip: {quizData.tipsById[tip].body}</p>
+          <h3 key={key}>
+            <em>Tip: {quizData.tipsById[tip].body}</em>
+          </h3>
         ))}
       <Button
         onClick={() => {

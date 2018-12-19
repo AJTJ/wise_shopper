@@ -7,7 +7,7 @@ import { connect } from "react-redux";
 import { actions } from "../redux";
 
 //MUI
-import { Grid } from "@material-ui/core";
+import { Grid, Fade } from "@material-ui/core";
 
 //other components
 import Menu from "../components/Menu";
@@ -17,20 +17,29 @@ const SummaryView = props => {
   return (
     <React.Fragment>
       <Menu />
-      <Grid
-        container
-        justify="center"
-        alignItems="center"
-        style={{ height: "100vh", paddingBottom: "200px" }}
-        direction="column"
-      >
-        {currentQuizId === "wiseQuiz" && (
-          <WiseSummary currentQuizId={currentQuizId} {...props} />
-        )}
-        {currentQuizId === "shoppingQuiz" && (
-          <ShoppingSummary currentQuizId={currentQuizId} {...props} />
-        )}
-      </Grid>
+      <Fade in={!!currentQuizId} timeout={1000}>
+        <Grid
+          container
+          justify="center"
+          alignItems="center"
+          style={{
+            paddingBottom: "200px",
+            maxWidth: "500px",
+            margin: "0 auto",
+            paddingRight: "20px",
+            paddingLeft: "20px",
+            height: "100vh"
+          }}
+          direction="column"
+        >
+          {currentQuizId === "wiseQuiz" && (
+            <WiseSummary currentQuizId={currentQuizId} {...props} />
+          )}
+          {currentQuizId === "shoppingQuiz" && (
+            <ShoppingSummary currentQuizId={currentQuizId} {...props} />
+          )}
+        </Grid>
+      </Fade>
     </React.Fragment>
   );
 };

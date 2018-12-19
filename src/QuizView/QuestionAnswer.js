@@ -9,7 +9,6 @@ export const QuestionAnswer = props => {
     questionId,
     setAnswerKey,
     answerIds,
-
     addScore,
     stepMinusOne
   } = props;
@@ -17,7 +16,19 @@ export const QuestionAnswer = props => {
 
   const QuestionDisplay = props => {
     const body = props.body;
-    return <h1>{body}</h1>;
+    return (
+      <React.Fragment>
+        {stepMinusOne === 0 && props.currentQuizId === "shoppingQuiz" && (
+          <h2>
+            <em>
+              Shopping is challening, consider the following three questions
+              before making a decision.
+            </em>
+          </h2>
+        )}
+        <h1>{body}</h1>
+      </React.Fragment>
+    );
   };
 
   const AnswerDisplay = props => {
@@ -45,7 +56,7 @@ export const QuestionAnswer = props => {
 
   return (
     <React.Fragment>
-      <QuestionDisplay body={question.body} />
+      <QuestionDisplay body={question.body} {...props} />
 
       <Grid>
         {answerIds.map((current_id, key) => (

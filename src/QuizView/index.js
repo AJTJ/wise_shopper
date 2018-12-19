@@ -13,11 +13,14 @@ import { Outcome } from "./Outcome";
 import Menu from "../components/Menu";
 
 //MUI
-import { Grid } from "@material-ui/core";
+import { Grid, Fade } from "@material-ui/core";
 
 const QuizView = props => {
   const [answerKey, setAnswerKey] = useState(0);
-  // const [view, setView] = useState(props.startView || "questionView");
+  const [questionTrans, setQuestionTrans] = useState(false);
+  const [answerTrans, setAnswerTrans] = useState(false);
+  const [stepTrans, setStepTrans] = useState(false);
+  // const [mount, setMount] = useState(false);
 
   //variables
   let { currentQuizId, step, view } = props.match.params;
@@ -26,50 +29,117 @@ const QuizView = props => {
   let { questionId, answerIds, outcomeIds } = quizData[currentQuizId][
     stepMinusOne
   ];
+  const quizLength = quizData[currentQuizId].length;
 
-  useEffect(() => {
-    // console.log(props.wiseQuizScore);
-  });
+  useEffect(
+    () => {
+      if (view === "question") {
+        setQuestionTrans(true);
+      } else {
+        setQuestionTrans(false);
+      }
+      if (view === "answer") {
+        setAnswerTrans(true);
+      } else {
+        setAnswerTrans(false);
+      }
+      setStepTrans(false);
+      setStepTrans(true);
+    },
+    [view, step]
+  );
 
   return (
     <React.Fragment>
       <Menu />
+
       <Grid
         container
         justify="center"
         alignItems="center"
         direction="column"
         style={{
-          height: "100vh",
+          position: "relative",
           paddingBottom: "200px",
           maxWidth: "500px",
-          margin: "0 auto"
+          margin: "0 auto",
+          paddingRight: "20px",
+          paddingLeft: "20px",
+          height: "100vh"
         }}
       >
+        <div
+          style={{
+            position: "absolute",
+            top: 0,
+            right: 40
+          }}
+        >
+          <Fade in={stepTrans} timeout={2000}>
+            <h2>{step}</h2>
+          </Fade>
+        </div>
+        <div
+          style={{
+            position: "absolute",
+            top: 20,
+            right: 30
+          }}
+        >
+          <Fade in={!!step} timeout={1000}>
+            <h3>/</h3>
+          </Fade>
+        </div>
+        <div
+          style={{
+            position: "absolute",
+            top: 35,
+            right: 20
+          }}
+        >
+          <Fade in={!!step} timeout={1000}>
+            <h3>{quizLength}</h3>
+          </Fade>
+        </div>
+
         {view === "question" && (
-          <React.Fragment>
-            <QuestionAnswer
-              view={view}
-              questionId={questionId}
-              answerIds={answerIds}
-              quizData={quizData}
-              // setView={setView}
-              stepMinusOne={stepMinusOne}
-              setAnswerKey={setAnswerKey}
-              currentQuizId={currentQuizId}
-              {...props}
-            />
-          </React.Fragment>
+          <Fade in={questionTrans} timeout={1000}>
+            <Grid
+              container
+              justify="center"
+              alignItems="center"
+              direction="column"
+            >
+              <QuestionAnswer
+                view={view}
+                questionId={questionId}
+                answerIds={answerIds}
+                quizData={quizData}
+                stepMinusOne={stepMinusOne}
+                setAnswerKey={setAnswerKey}
+                currentQuizId={currentQuizId}
+                {...props}
+              />
+            </Grid>
+          </Fade>
         )}
         {view === "answer" && (
-          <Outcome
-            currentQuizId={currentQuizId}
-            outcomeId={outcomeIds[answerKey]}
-            // setView={setView}
-            stepMinusOne={stepMinusOne}
-            quizData={quizData}
-            {...props}
-          />
+          <Fade in={answerTrans} timeout={1000}>
+            <Grid
+              container
+              justify="center"
+              alignItems="center"
+              direction="column"
+            >
+              <Outcome
+                currentQuizId={currentQuizId}
+                outcomeId={outcomeIds[answerKey]}
+                stepMinusOne={stepMinusOne}
+                quizData={quizData}
+                {...props}
+              />
+            </Grid>
+          </Fade>
         )}
       </Grid>
     </React.Fragment>

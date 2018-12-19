@@ -20,8 +20,8 @@ export const outcomes = {
   },
   noAfford: {
     label: "",
-    body:
-      "Good work! Use our budgeting tool to save for the future (link to tool).",
+    body: `Good work! Use our budgeting tool to save for the future`,
+    link: "http://aaronjanke.com/ylcBudget/Form/income",
     questionIds: questionIds
   },
   yesValue: {

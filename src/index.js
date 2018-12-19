@@ -3,6 +3,8 @@ import ReactDOM from "react-dom";
 
 import "animate.css";
 
+import "./styles/global.css";
+
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 

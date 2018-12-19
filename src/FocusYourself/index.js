@@ -20,10 +20,10 @@ const FocusYourself = () => {
   const [menuIndicator, setMenuIndicator] = useState(false);
 
   const purchaseText = "About to make a purchase?".split(" ");
-  const pauseText = "Pause".split(" ");
-  const restText = "Rest".split(" ");
-  const breathText = "Take a Breath".split(" ");
-  const chooseText = "Choose a Quiz".split(" ");
+  const pauseText = "Pause...".split(" ");
+  const restText = "Rest...".split(" ");
+  const breathText = "Take a Breath...".split(" ");
+  const chooseText = "Choose a Quiz.".split(" ");
   const smileText = ":)".split(" ");
 
   useEffect(() => {
@@ -91,7 +91,12 @@ const FocusYourself = () => {
         container
         justify="center"
         alignItems="center"
-        style={{ height: "100vh", paddingBottom: "200px" }}
+        style={{
+          paddingBottom: "200px",
+          paddingRight: "20px",
+          paddingLeft: "20px",
+          height: "100vh"
+        }}
         direction="column"
       >
         <div>
