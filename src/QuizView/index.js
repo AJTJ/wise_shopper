@@ -15,6 +15,9 @@ import Menu from "../components/Menu";
 //MUI
 import { Grid, Fade } from "@material-ui/core";
 
+//tools
+import { randomColor } from "../tools/randomColor";
+
 const QuizView = props => {
   const [answerKey, setAnswerKey] = useState(0);
   const [questionTrans, setQuestionTrans] = useState(false);
@@ -50,7 +53,12 @@ const QuizView = props => {
   );
 
   return (
-    <React.Fragment>
+    <Grid
+      style={{
+        backgroundColor: randomColor(),
+        height: "100vh"
+      }}
+    >
       <Menu />
 
       <Grid
@@ -60,12 +68,13 @@ const QuizView = props => {
         direction="column"
         style={{
           position: "relative",
-          paddingBottom: "200px",
           maxWidth: "500px",
           margin: "0 auto",
+          paddingTop: "75px",
+          paddingBottom: "75px",
           paddingRight: "20px",
           paddingLeft: "20px",
-          height: "100vh"
+          maxHeight: "800px"
         }}
       >
         <div
@@ -142,7 +151,7 @@ const QuizView = props => {
           </Fade>
         )}
       </Grid>
-    </React.Fragment>
+    </Grid>
   );
 };
 

@@ -47,7 +47,7 @@ const FocusYourself = () => {
       setPurchase(true);
       setFadeTime(true);
       //start
-      await wait(5000);
+      await wait(3000);
       //fadeout
       setFadeTime(false);
       await wait(500);
@@ -92,10 +92,14 @@ const FocusYourself = () => {
         justify="center"
         alignItems="center"
         style={{
-          paddingBottom: "200px",
+          position: "relative",
+          maxWidth: "500px",
+          margin: "0 auto",
+          paddingTop: "75px",
+          paddingBottom: "75px",
           paddingRight: "20px",
           paddingLeft: "20px",
-          height: "100vh"
+          maxHeight: "800px"
         }}
         direction="column"
       >

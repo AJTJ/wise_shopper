@@ -19,12 +19,12 @@ export const QuestionAnswer = props => {
     return (
       <React.Fragment>
         {stepMinusOne === 0 && props.currentQuizId === "shoppingQuiz" && (
-          <h2>
+          <h3>
             <em>
               Shopping is challening, consider the following three questions
               before making a decision.
             </em>
-          </h2>
+          </h3>
         )}
         <h1>{body}</h1>
       </React.Fragment>
