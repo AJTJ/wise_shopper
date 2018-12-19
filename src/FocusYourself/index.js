@@ -8,6 +8,9 @@ import { Fade, Grid, ButtonBase } from "@material-ui/core";
 //components
 import Menu from "../components/Menu";
 
+//other
+import { randomColor } from "../tools/randomColor";
+
 const FocusYourself = () => {
   const [purchase, setPurchase] = useState(false);
   const [pause, setPause] = useState(false);
@@ -18,6 +21,7 @@ const FocusYourself = () => {
   const [smile, setSmile] = useState(false);
   const [fadeTime, setFadeTime] = useState(false);
   const [menuIndicator, setMenuIndicator] = useState(false);
+  const [bgColor, setBgColor] = useState("white");
 
   const purchaseText = "About to make a purchase?".split(" ");
   const pauseText = "Pause...".split(" ");
@@ -82,8 +86,21 @@ const FocusYourself = () => {
     createSequence();
   }, []);
 
+  useEffect(
+    () => {
+      setBgColor(randomColor());
+    },
+    [purchase, menuDisplay]
+  );
+
   return (
-    <React.Fragment>
+    <Grid
+      style={{
+        background: bgColor,
+        transition: "all 2s",
+        height: "100vh"
+      }}
+    >
       <Fade in={menuDisplay} timeout={3000}>
         <Menu style={{ visibility: menuDisplay ? null : "hidden" }} />
       </Fade>
@@ -147,7 +164,7 @@ const FocusYourself = () => {
           </ButtonBase>
         </Fade>
       </Grid>
-    </React.Fragment>
+    </Grid>
   );
 };
 

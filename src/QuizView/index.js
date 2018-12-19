@@ -56,6 +56,7 @@ const QuizView = props => {
     <Grid
       style={{
         backgroundColor: randomColor(),
+        transition: "all 1s",
         height: "100vh"
       }}
     >

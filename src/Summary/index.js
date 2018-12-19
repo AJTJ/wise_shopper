@@ -11,11 +11,17 @@ import { Grid, Fade } from "@material-ui/core";
 
 //other components
 import Menu from "../components/Menu";
+import { randomColor } from "../tools/randomColor";
 
 const SummaryView = props => {
   const currentQuizId = props.match.params.currentQuizId;
   return (
-    <React.Fragment>
+    <Grid
+      style={{
+        backgroundColor: randomColor(),
+        transition: "all 1s"
+      }}
+    >
       <Menu />
       <Fade in={!!currentQuizId} timeout={1000}>
         <Grid
@@ -40,7 +46,7 @@ const SummaryView = props => {
           )}
         </Grid>
       </Fade>
-    </React.Fragment>
+    </Grid>
   );
 };
 
