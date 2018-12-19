@@ -5,6 +5,7 @@ const defaultState = {
 };
 
 const scoreReducer = (state = defaultState, action) => {
+  console.log(state.wiseQuizScore);
   switch (action.type) {
     case constants.addScore:
       const { quiz, question, answer } = action;
@@ -16,6 +17,7 @@ const scoreReducer = (state = defaultState, action) => {
         }
       };
     case constants.resetScore:
+      console.log("reset!");
       return {
         ...state,
         ...defaultState

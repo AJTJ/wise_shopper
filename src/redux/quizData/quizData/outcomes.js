@@ -3,12 +3,14 @@ import { questionIds } from "./questions";
 export const outcomes = {
   needDefinition: {
     label: "",
-    body: "Definition of 'need'.",
+    body:
+      'Definition of "Need": To require (something) because it is essential or very important.',
     questionIds: questionIds
   },
   wantDefinition: {
     label: "",
-    body: "Definition of 'want'.",
+    body:
+      'Definition of "Want": To have a desire to possess or do (something).',
     questionIds: questionIds
   },
   yesAfford: {
@@ -25,7 +27,7 @@ export const outcomes = {
   yesValue: {
     label: "",
     body:
-      "You have taken the time to assess what is important to you and only purchase items that add value.",
+      "You have taken the time to assess what is important to you and are purchasing an item that adds value to your life.",
     questionIds: questionIds
   },
   noValue: {

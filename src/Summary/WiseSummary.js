@@ -27,20 +27,18 @@ export default props => {
     return finalScore;
   };
 
-  // console.log("the score", score());
-
   return (
     <div>
       {scoreValues !== quizLength ? (
-        <div>You didn't answer all the questions, start at the beginning!</div>
+        <h1>You didn't answer all the questions, start at the beginning!</h1>
       ) : (
         <div>
-          <p>You answered</p>
+          <h1>You answered</h1>
           {score().map((score, key) => {
             return (
-              <p key={key}>
-                {score.answerBody} {score.count} times
-              </p>
+              <h2 key={key}>
+                {score.answerBody}: {score.count} times
+              </h2>
             );
           })}
         </div>

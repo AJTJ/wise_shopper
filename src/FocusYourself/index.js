@@ -3,7 +3,7 @@ import TextTrail from "./TextTrail";
 // import { BasicTransition } from "../reactTransitions/transitions";
 
 //MUI
-import { Fade, Grid } from "@material-ui/core";
+import { Fade, Grid, ButtonBase } from "@material-ui/core";
 
 //components
 import Menu from "../components/Menu";
@@ -17,6 +17,7 @@ const FocusYourself = () => {
   const [menuDisplay, setMenuDisplay] = useState(false);
   const [smile, setSmile] = useState(false);
   const [fadeTime, setFadeTime] = useState(false);
+  const [menuIndicator, setMenuIndicator] = useState(false);
 
   const purchaseText = "About to make a purchase?".split(" ");
   const pauseText = "Pause".split(" ");
@@ -46,13 +47,15 @@ const FocusYourself = () => {
       setPurchase(true);
       setFadeTime(true);
       //start
-      await wait(3000);
+      await wait(5000);
       //fadeout
       setFadeTime(false);
       await wait(500);
       //reset
       trans(setPurchase, setPause);
-      await wait(2000);
+      await wait(500);
+      setMenuIndicator(true);
+      await wait(1500);
       //fadeout
       setFadeTime(false);
       await wait(500);
@@ -71,6 +74,7 @@ const FocusYourself = () => {
       //finish
       trans(setBreath, setChoose);
       setMenuDisplay(true);
+      setMenuIndicator(false);
       await wait(2000);
       setSmile(true);
     }
@@ -88,30 +92,51 @@ const FocusYourself = () => {
         justify="center"
         alignItems="center"
         style={{ height: "100vh", paddingBottom: "200px" }}
+        direction="column"
       >
-        {purchase && (
-          <TextTrail
-            items={purchaseText}
-            Component={"h1"}
-            fadeProp={fadeTime}
-          />
-        )}
+        <div>
+          {purchase && (
+            <TextTrail
+              items={purchaseText}
+              Component={"h1"}
+              fadeProp={fadeTime}
+            />
+          )}
 
-        {pause && (
-          <TextTrail items={pauseText} Component={"h1"} fadeProp={fadeTime} />
-        )}
-        {rest && (
-          <TextTrail items={restText} Component={"h1"} fadeProp={fadeTime} />
-        )}
-        {breath && (
-          <TextTrail items={breathText} Component={"h1"} fadeProp={fadeTime} />
-        )}
-        {choose && (
-          <TextTrail items={chooseText} Component={"h1"} fadeProp={fadeTime} />
-        )}
-        {smile && (
-          <TextTrail items={smileText} Component={"h1"} fadeProp={fadeTime} />
-        )}
+          {pause && (
+            <TextTrail items={pauseText} Component={"h1"} fadeProp={fadeTime} />
+          )}
+          {rest && (
+            <TextTrail items={restText} Component={"h1"} fadeProp={fadeTime} />
+          )}
+          {breath && (
+            <TextTrail
+              items={breathText}
+              Component={"h1"}
+              fadeProp={fadeTime}
+            />
+          )}
+          {choose && (
+            <TextTrail
+              items={chooseText}
+              Component={"h1"}
+              fadeProp={fadeTime}
+            />
+          )}
+        </div>
+        <div>
+          <TextTrail items={smileText} Component={"h1"} fadeProp={smile} />
+        </div>
+        <Fade in={menuIndicator}>
+          <ButtonBase
+            onClick={() => {
+              setMenuDisplay(true);
+              setMenuIndicator(false);
+            }}
+          >
+            <p>(show the menu)</p>
+          </ButtonBase>
+        </Fade>
       </Grid>
     </React.Fragment>
   );
