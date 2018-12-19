@@ -1,7 +1,7 @@
 import * as constants from "./constants";
 
 const defaultState = {
-  wiseQuizScore: { 0: 0, 1: 1, 2: 2, 3: 0, 4: 0 }
+  wiseQuizScore: {}
 };
 
 const scoreReducer = (state = defaultState, action) => {

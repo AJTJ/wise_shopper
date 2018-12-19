@@ -4,9 +4,10 @@ import ShoppingSummary from "./ShoppingSummary";
 
 import { connect } from "react-redux";
 import { actions } from "../redux";
+// import { BasicTransition } from "../reactTransitions/transitions";
 
 const SummaryView = props => {
-  const { history } = props;
+  const { history, resetScore } = props;
   const currentQuizId = props.match.params.currentQuizId;
   return (
     <React.Fragment>
@@ -21,6 +22,7 @@ const SummaryView = props => {
       <button
         onClick={() => {
           history.push(`/`);
+          resetScore();
         }}
       >
         Focus Yourself
@@ -28,6 +30,7 @@ const SummaryView = props => {
       <button
         onClick={() => {
           history.push(`/wiseQuiz/1`);
+          resetScore();
         }}
       >
         Wise Quiz
@@ -35,6 +38,7 @@ const SummaryView = props => {
       <button
         onClick={() => {
           history.push(`/shoppingQuiz/1`);
+          resetScore();
         }}
       >
         Shopping Quiz

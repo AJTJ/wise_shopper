@@ -1,7 +1,6 @@
 import React from "react";
 
 export default props => {
-  console.log("wiseprops", props);
   const { quizData, currentQuizId, wiseQuizScore } = props;
 
   const quizLength = quizData[currentQuizId].length;
@@ -28,7 +27,7 @@ export default props => {
     return finalScore;
   };
 
-  console.log("the score", score());
+  // console.log("the score", score());
 
   return (
     <div>

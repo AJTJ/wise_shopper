@@ -1,5 +1,7 @@
 import React from "react";
 
+// import { BasicTransition } from "../reactTransitions/transitions";
+
 export const QuestionAnswer = props => {
   const {
     quizData,

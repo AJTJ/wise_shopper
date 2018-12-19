@@ -8,6 +8,8 @@ import { actions } from "../redux";
 import { QuestionAnswer } from "./QuestionAnswer";
 import { Outcome } from "./Outcome";
 
+// import { BasicTransition } from "../reactTransitions/transitions";
+
 const QuizView = props => {
   const [answerKey, setAnswerKey] = useState(0);
   const [view, setView] = useState("ShoppingQuestion");
@@ -21,23 +23,25 @@ const QuizView = props => {
   ];
 
   useEffect(() => {
-    console.log(props.wiseQuizScore);
+    // console.log(props.wiseQuizScore);
   });
 
   return (
     <div>
       {view === "ShoppingQuestion" && (
-        <QuestionAnswer
-          view={view}
-          questionId={questionId}
-          answerIds={answerIds}
-          quizData={quizData}
-          setView={setView}
-          stepMinusOne={stepMinusOne}
-          setAnswerKey={setAnswerKey}
-          currentQuizId={currentQuizId}
-          {...props}
-        />
+        <React.Fragment>
+          <QuestionAnswer
+            view={view}
+            questionId={questionId}
+            answerIds={answerIds}
+            quizData={quizData}
+            setView={setView}
+            stepMinusOne={stepMinusOne}
+            setAnswerKey={setAnswerKey}
+            currentQuizId={currentQuizId}
+            {...props}
+          />
+        </React.Fragment>
       )}
       {view === "ShoppingOutcome" && (
         <Outcome
