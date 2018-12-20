@@ -82,6 +82,8 @@ const MyMenu = props => {
     </a>
   );
 
+  const Hamburger = require("../resources/baseline-menu-24px.svg");
+
   return (
     <AppBar style={props.style} position="static" color="default">
       <WithWidth>
@@ -100,9 +102,7 @@ const MyMenu = props => {
                     aria-haspopup="true"
                     onClick={e => handleClick(e)}
                   >
-                    <Avatar
-                      src={require("../resources/baseline-menu-24px.svg")}
-                    />
+                    <Avatar src={Hamburger} />
                   </AnchorButton>
                   <Menu
                     anchorEl={anchorEl}
