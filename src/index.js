@@ -14,7 +14,7 @@ import { store } from "./store";
 
 ReactDOM.render(
   <Provider store={store}>
-    <BrowserRouter basename="/">
+    <BrowserRouter basename="/ylcQuizzes">
       <App />
     </BrowserRouter>
   </Provider>,
