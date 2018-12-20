@@ -74,7 +74,7 @@ export const outcomes = {
   yesReturnRefund: {
     label: "",
     body:
-      "Awesome! Knowing the stores return and refund policy ensures you will not be left with a product that does not meet your needs.",
+      "Awesome! Knowing the store's return and refund policy ensures you will not be left with a product that does not meet your needs.",
     questionIds: questionIds
   },
   sometimesReturnRefund: {

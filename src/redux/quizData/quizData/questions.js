@@ -31,7 +31,7 @@ export const questions = {
   returnRefundQuestion: {
     title: "",
     body:
-      "I ask about a store’s online retailers return and refund policy before I buy things to make sure I can get a replacement or refund if I’m not satisfied with my purchase.",
+      "I ask about a store’s/online retailers return and refund policy before I buy things to make sure I can get a replacement or refund if I’m not satisfied with my purchase.",
     answerIds: answerIds
   },
   couponsComparisonQuestion: {

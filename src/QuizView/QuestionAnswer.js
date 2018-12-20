@@ -26,6 +26,14 @@ export const QuestionAnswer = props => {
             </em>
           </h3>
         )}
+        {stepMinusOne === 0 && props.currentQuizId === "wiseQuiz" && (
+          <h3>
+            <em>
+              This quiz was to created to provide you with some tips and tools
+              on how to become a better shopper.
+            </em>
+          </h3>
+        )}
         <h1>{body}</h1>
       </React.Fragment>
     );
