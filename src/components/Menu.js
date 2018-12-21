@@ -25,7 +25,6 @@ const WithWidth = toRenderProps(withWidth());
 
 const MyMenu = props => {
   const [anchorEl, setAnchorEl] = useState(null);
-  console.log(anchorEl);
 
   const AnchorButton = Button;
   const { resetScore } = props;

@@ -38,7 +38,6 @@ export default props => {
         finalScore[known].count++;
       }
     }
-    // console.log(finalScore);
     yes = finalScore[0].count;
     sometimes = finalScore[1].count;
     no = finalScore[2].count;
@@ -53,7 +52,6 @@ export default props => {
           <div>
             <h1>You answered:</h1>
             {score().map((score, key) => {
-              // console.log("ff", finalScore, yes, sometimes, no);
               return (
                 <h4 key={key}>
                   {score.answerBody}: {score.count}{" "}

@@ -5,8 +5,6 @@ import { Trail } from "react-spring";
 import { Fade } from "@material-ui/core";
 
 const TextTrail = ({ items, fadeProp }) => {
-  // let thisPurchase = purchase;
-  // console.log(thisPurchase);
   return (
     <Trail
       items={items}
