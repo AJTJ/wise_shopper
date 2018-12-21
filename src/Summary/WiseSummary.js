@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+
+import { Fade } from "@material-ui/core";
 
 export default props => {
+  const [mounted, setMounted] = useState(false);
   const { quizData, currentQuizId, wiseQuizScore } = props;
 
   const quizLength = quizData[currentQuizId].length;
@@ -13,6 +16,10 @@ export default props => {
   let yes = undefined;
   let sometimes = undefined;
   let no = undefined;
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const score = () => {
     const allQuestions = quizData[currentQuizId];
@@ -38,40 +45,42 @@ export default props => {
     return finalScore;
   };
   return (
-    <div>
-      {scoreValues !== quizLength ? (
-        <h1>You didn't answer all the questions, start at the beginning!</h1>
-      ) : (
-        <div>
-          <h1>You answered:</h1>
-          {score().map((score, key) => {
-            // console.log("ff", finalScore, yes, sometimes, no);
-            return (
-              <h4 key={key}>
-                {score.answerBody}: {score.count}{" "}
-                {score.count === 1 ? "time" : "times"}
-              </h4>
-            );
-          })}
-          {yes >= 3 ? (
-            <h2>
-              You make the most of your shopping dollar but remember there’s
-              always room to learn more!
-            </h2>
-          ) : (yes <= 2 && sometimes >= 2 && no <= 2) ||
-            (yes === 2 && no === 2) ? (
-            <h2>
-              You are a good shopper but paying a bit more attention to how you
-              spend your money may help you save more!
-            </h2>
-          ) : (
-            <h2>
-              You’ve taken the first step to becoming a wise shopper by
-              completing this quiz!
-            </h2>
-          )}
-        </div>
-      )}
-    </div>
+    <Fade in={mounted} timeout={1000}>
+      <div>
+        {scoreValues !== quizLength ? (
+          <h1>You didn't answer all the questions, start at the beginning!</h1>
+        ) : (
+          <div>
+            <h1>You answered:</h1>
+            {score().map((score, key) => {
+              // console.log("ff", finalScore, yes, sometimes, no);
+              return (
+                <h4 key={key}>
+                  {score.answerBody}: {score.count}{" "}
+                  {score.count === 1 ? "time" : "times"}
+                </h4>
+              );
+            })}
+            {yes >= 3 ? (
+              <h2>
+                You make the most of your shopping dollar but remember there’s
+                always room to learn more!
+              </h2>
+            ) : (yes <= 2 && sometimes >= 2 && no <= 2) ||
+              (yes === 2 && no === 2) ? (
+              <h2>
+                You are a good shopper but paying a bit more attention to how
+                you spend your money may help you save more!
+              </h2>
+            ) : (
+              <h2>
+                You’ve taken the first step to becoming a wise shopper by
+                completing this quiz!
+              </h2>
+            )}
+          </div>
+        )}
+      </div>
+    </Fade>
   );
 };
