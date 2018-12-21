@@ -9,6 +9,7 @@ export const outcomes = {
   },
   wantDefinition: {
     label: "",
+    pre: "Then you must want it.",
     body:
       'Definition of "Want": To have a desire to possess or do (something).',
     questionIds: questionIds

@@ -6,47 +6,29 @@ import ShoppingSummary from "./ShoppingSummary";
 import { connect } from "react-redux";
 import { actions } from "../redux";
 
-//MUI
-import { Grid, Fade } from "@material-ui/core";
+//MUI and styles
+import { Fade } from "@material-ui/core";
+import { QuizGrid, BackgroundGrid } from "../styles/layout";
 
 //other components
 import Menu from "../components/Menu";
-import { randomColor } from "../tools/randomColor";
 
 const SummaryView = props => {
   const currentQuizId = props.match.params.currentQuizId;
   return (
-    <Grid
-      style={{
-        backgroundColor: randomColor(),
-        transition: "all 1s"
-      }}
-    >
+    <BackgroundGrid alpha={0.1}>
       <Menu />
       <Fade in={!!currentQuizId} timeout={1000}>
-        <Grid
-          container
-          justify="center"
-          alignItems="center"
-          style={{
-            paddingBottom: "200px",
-            maxWidth: "500px",
-            margin: "0 auto",
-            paddingRight: "20px",
-            paddingLeft: "20px",
-            height: "100vh"
-          }}
-          direction="column"
-        >
+        <QuizGrid>
           {currentQuizId === "wiseQuiz" && (
             <WiseSummary currentQuizId={currentQuizId} {...props} />
           )}
           {currentQuizId === "shoppingQuiz" && (
             <ShoppingSummary currentQuizId={currentQuizId} {...props} />
           )}
-        </Grid>
+        </QuizGrid>
       </Fade>
-    </Grid>
+    </BackgroundGrid>
   );
 };
 

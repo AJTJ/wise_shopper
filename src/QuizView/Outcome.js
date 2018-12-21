@@ -22,6 +22,11 @@ export const Outcome = props => {
   return (
     <React.Fragment>
       <h1>
+        {outcome.pre && (
+          <h2>
+            <em>{outcome.pre}</em>
+          </h2>
+        )}
         {outcome.body}
         {outcome.link && (
           <React.Fragment>
@@ -46,6 +51,7 @@ export const Outcome = props => {
         ))}
       <Button
         onClick={() => {
+          props.setStepTrans(false);
           nextStep();
         }}
       >

@@ -2,8 +2,9 @@ import React, { useState, useEffect } from "react";
 import TextTrail from "./TextTrail";
 // import { BasicTransition } from "../reactTransitions/transitions";
 
-//MUI
+//MUI and styles
 import { Fade, Grid, ButtonBase } from "@material-ui/core";
+import { QuizGrid } from "../styles/layout";
 
 //components
 import Menu from "../components/Menu";
@@ -23,16 +24,12 @@ const FocusYourself = () => {
   const [menuIndicator, setMenuIndicator] = useState(false);
   const [bgColor, setBgColor] = useState("white");
 
-  const purchaseText = "About to make a purchase?".split(" ");
+  const purchaseText = "Making a purchase?".split(" ");
   const pauseText = "Pause...".split(" ");
   const restText = "Rest...".split(" ");
   const breathText = "Take a Breath...".split(" ");
   const chooseText = "Choose a Quiz.".split(" ");
   const smileText = ":)".split(" ");
-
-  useEffect(() => {
-    // console.log(fadeTime);
-  });
 
   useEffect(() => {
     const wait = delay => {
@@ -82,13 +79,12 @@ const FocusYourself = () => {
       await wait(2000);
       setSmile(true);
     }
-
     createSequence();
   }, []);
 
   useEffect(
     () => {
-      setBgColor(randomColor());
+      setBgColor(randomColor(0.1));
     },
     [purchase, menuDisplay]
   );
@@ -104,66 +100,42 @@ const FocusYourself = () => {
       <Fade in={menuDisplay} timeout={3000}>
         <Menu style={{ visibility: menuDisplay ? null : "hidden" }} />
       </Fade>
-      <Grid
-        container
-        justify="center"
-        alignItems="center"
-        style={{
-          position: "relative",
-          maxWidth: "500px",
-          margin: "0 auto",
-          paddingTop: "75px",
-          paddingBottom: "75px",
-          paddingRight: "20px",
-          paddingLeft: "20px",
-          maxHeight: "800px"
-        }}
-        direction="column"
-      >
-        <div>
-          {purchase && (
-            <TextTrail
-              items={purchaseText}
-              Component={"h1"}
-              fadeProp={fadeTime}
-            />
-          )}
+      <QuizGrid>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            flexWrap: "wrap"
+          }}
+        >
+          {purchase && <TextTrail items={purchaseText} fadeProp={fadeTime} />}
 
-          {pause && (
-            <TextTrail items={pauseText} Component={"h1"} fadeProp={fadeTime} />
-          )}
-          {rest && (
-            <TextTrail items={restText} Component={"h1"} fadeProp={fadeTime} />
-          )}
-          {breath && (
-            <TextTrail
-              items={breathText}
-              Component={"h1"}
-              fadeProp={fadeTime}
-            />
-          )}
-          {choose && (
-            <TextTrail
-              items={chooseText}
-              Component={"h1"}
-              fadeProp={fadeTime}
-            />
-          )}
+          {pause && <TextTrail items={pauseText} fadeProp={fadeTime} />}
+          {rest && <TextTrail items={restText} fadeProp={fadeTime} />}
+          {breath && <TextTrail items={breathText} fadeProp={fadeTime} />}
+          {choose && <TextTrail items={chooseText} fadeProp={fadeTime} />}
         </div>
         <div>
-          <TextTrail items={smileText} Component={"h1"} fadeProp={smile} />
+          <TextTrail items={smileText} fadeProp={smile} />
         </div>
-        <Fade in={menuIndicator}>
-          <ButtonBase
-            onClick={() => {
-              setMenuDisplay(true);
-              setMenuIndicator(false);
-            }}
-          >
-            <p style={{ color: "rgba(0,0,0,0.4)" }}>(show the menu)</p>
-          </ButtonBase>
-        </Fade>
-      </Grid>
+      </QuizGrid>
+      <Fade in={menuIndicator}>
+        <ButtonBase
+          style={{
+            position: "absolute",
+            bottom: "20px",
+            right: "50%",
+            left: "calc(50% - 50px)",
+            width: "100px"
+          }}
+          onClick={() => {
+            setMenuDisplay(true);
+            setMenuIndicator(false);
+          }}
+        >
+          <p style={{ color: "rgba(0,0,0,0.4)" }}>(show the menu)</p>
+        </ButtonBase>
+      </Fade>
     </Grid>
   );
 };

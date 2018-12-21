@@ -4,7 +4,7 @@ import { Trail } from "react-spring";
 
 import { Fade } from "@material-ui/core";
 
-const TextTrail = ({ items, Component, fadeProp }) => {
+const TextTrail = ({ items, fadeProp }) => {
   // let thisPurchase = purchase;
   // console.log(thisPurchase);
   return (
@@ -28,7 +28,9 @@ const TextTrail = ({ items, Component, fadeProp }) => {
         return (
           <Fade in={fadeProp} timeout={1000}>
             <span>
-              <Component style={props}>{item}</Component>
+              <h1 className="introText" style={props}>
+                {item}
+              </h1>
             </span>
           </Fade>
         );

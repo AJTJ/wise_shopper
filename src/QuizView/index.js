@@ -8,22 +8,23 @@ import { actions } from "../redux";
 //quiz components
 import { QuestionAnswer } from "./QuestionAnswer";
 import { Outcome } from "./Outcome";
+import QuestionCount from "./QuestionCount";
 
 //other components
 import Menu from "../components/Menu";
 
-//MUI
+//MUI and styles
 import { Grid, Fade } from "@material-ui/core";
+import { MyCard, QuizGrid, BackgroundGrid } from "../styles/layout";
 
 //tools
-import { randomColor } from "../tools/randomColor";
 
 const QuizView = props => {
+  //state
   const [answerKey, setAnswerKey] = useState(0);
   const [questionTrans, setQuestionTrans] = useState(false);
   const [answerTrans, setAnswerTrans] = useState(false);
   const [stepTrans, setStepTrans] = useState(false);
-  // const [mount, setMount] = useState(false);
 
   //variables
   let { currentQuizId, step, view } = props.match.params;
@@ -46,113 +47,74 @@ const QuizView = props => {
       } else {
         setAnswerTrans(false);
       }
-      setStepTrans(false);
-      setStepTrans(true);
     },
     [view, step]
   );
 
+  useEffect(
+    () => {
+      setStepTrans(true);
+    },
+    [stepTrans]
+  );
+
   return (
-    <Grid
-      style={{
-        backgroundColor: randomColor(),
-        transition: "all 1s",
-        height: "100vh"
-      }}
-    >
+    <BackgroundGrid alpha={0.3}>
       <Menu />
 
-      <Grid
-        container
-        justify="center"
-        alignItems="center"
-        direction="column"
-        style={{
-          position: "relative",
-          maxWidth: "500px",
-          margin: "0 auto",
-          paddingTop: "75px",
-          paddingBottom: "75px",
-          paddingRight: "20px",
-          paddingLeft: "20px",
-          maxHeight: "800px"
-        }}
-      >
-        <div
-          style={{
-            position: "absolute",
-            top: 0,
-            right: 40
-          }}
-        >
-          <Fade in={stepTrans} timeout={2000}>
-            <h2>{step}</h2>
-          </Fade>
-        </div>
-        <div
-          style={{
-            position: "absolute",
-            top: 20,
-            right: 30
-          }}
-        >
-          <Fade in={!!step} timeout={1000}>
-            <h3>/</h3>
-          </Fade>
-        </div>
-        <div
-          style={{
-            position: "absolute",
-            top: 35,
-            right: 20
-          }}
-        >
-          <Fade in={!!step} timeout={1000}>
-            <h3>{quizLength}</h3>
-          </Fade>
-        </div>
+      <QuizGrid>
+        <QuestionCount
+          stepTrans={stepTrans}
+          step={step}
+          quizLength={quizLength}
+        />
 
         {view === "question" && (
-          <Fade in={questionTrans} timeout={1000}>
-            <Grid
-              container
-              justify="center"
-              alignItems="center"
-              direction="column"
-            >
-              <QuestionAnswer
-                view={view}
-                questionId={questionId}
-                answerIds={answerIds}
-                quizData={quizData}
-                stepMinusOne={stepMinusOne}
-                setAnswerKey={setAnswerKey}
-                currentQuizId={currentQuizId}
-                {...props}
-              />
-            </Grid>
-          </Fade>
+          <MyCard opacity="0.8">
+            <Fade in={questionTrans} timeout={1000}>
+              <Grid
+                container
+                justify="center"
+                alignItems="center"
+                direction="column"
+              >
+                <QuestionAnswer
+                  view={view}
+                  questionId={questionId}
+                  answerIds={answerIds}
+                  quizData={quizData}
+                  stepMinusOne={stepMinusOne}
+                  setAnswerKey={setAnswerKey}
+                  currentQuizId={currentQuizId}
+                  {...props}
+                />
+              </Grid>
+            </Fade>
+          </MyCard>
         )}
         {view === "answer" && (
-          <Fade in={answerTrans} timeout={1000}>
-            <Grid
-              container
-              justify="center"
-              alignItems="center"
-              direction="column"
-            >
-              <Outcome
-                currentQuizId={currentQuizId}
-                outcomeId={outcomeIds[answerKey]}
-                stepMinusOne={stepMinusOne}
-                quizData={quizData}
-                {...props}
-              />
-            </Grid>
-          </Fade>
+          <MyCard opacity="0.8">
+            <Fade in={answerTrans} timeout={1000}>
+              <Grid
+                container
+                justify="center"
+                alignItems="center"
+                direction="column"
+              >
+                <Outcome
+                  currentQuizId={currentQuizId}
+                  outcomeId={outcomeIds[answerKey]}
+                  stepMinusOne={stepMinusOne}
+                  quizData={quizData}
+                  setStepTrans={setStepTrans}
+                  {...props}
+                />
+              </Grid>
+            </Fade>
+          </MyCard>
         )}
-      </Grid>
-    </Grid>
+      </QuizGrid>
+    </BackgroundGrid>
   );
 };
 

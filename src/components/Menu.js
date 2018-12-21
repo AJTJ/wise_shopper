@@ -25,6 +25,7 @@ const WithWidth = toRenderProps(withWidth());
 
 const MyMenu = props => {
   const [anchorEl, setAnchorEl] = useState(null);
+  console.log(anchorEl);
 
   const AnchorButton = Button;
   const { resetScore } = props;
@@ -110,7 +111,7 @@ const MyMenu = props => {
                     onClose={() => handleClose()}
                   >
                     <MenuItem
-                      onClick={() => setAnchorEl(false)}
+                      onClick={() => setAnchorEl(null)}
                       component={introLink}
                     >
                       The Intro
@@ -118,7 +119,7 @@ const MyMenu = props => {
                     <MenuItem
                       component={shoppingLink}
                       onClick={() => {
-                        setAnchorEl(false);
+                        setAnchorEl(null);
                         resetScore();
                       }}
                     >
@@ -127,7 +128,7 @@ const MyMenu = props => {
                     <MenuItem
                       component={wiseLink}
                       onClick={() => {
-                        setAnchorEl(false);
+                        setAnchorEl(null);
                         resetScore();
                       }}
                     >
@@ -139,7 +140,7 @@ const MyMenu = props => {
                       rel="noopener noreferrer"
                       style={{ color: "inherit", textDecoration: "none" }}
                     >
-                      <MenuItem onClick={() => setAnchorEl(false)}>
+                      <MenuItem onClick={() => setAnchorEl(null)}>
                         The YLC Website
                       </MenuItem>
                     </a>
