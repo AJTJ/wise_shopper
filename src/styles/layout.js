@@ -47,7 +47,7 @@ export const MyCard = ({ opacity, children }) => {
       style={{
         borderRadius: "10px",
         backgroundColor: `rgba(255,255,255,${opacity})`,
-        padding: "10px",
+        padding: "25px",
         minWidth: "300px"
       }}
     >
