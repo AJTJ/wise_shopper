@@ -20,17 +20,16 @@ export const QuestionAnswer = props => {
       <React.Fragment>
         {stepMinusOne === 0 && props.currentQuizId === "shoppingQuiz" && (
           <h3>
-            <em>
-              Shopping is challening, consider the following three questions
-              before making a decision.
-            </em>
+            <em>Shopping is challening, consider the following </em>
+            <h1 style={{ display: "inline" }}>three questions</h1>
+            <em> before making a decision:</em>
           </h3>
         )}
         {stepMinusOne === 0 && props.currentQuizId === "wiseQuiz" && (
           <h3>
             <em>
-              This quiz was to created to provide you with some tips and tools
-              on how to become a better shopper.
+              The following five questions were created to provide you with some
+              tips and tools on how to become a better shopper:
             </em>
           </h3>
         )}

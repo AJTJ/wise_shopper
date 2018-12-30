@@ -53,10 +53,12 @@ export default props => {
             <h1>You answered:</h1>
             {score().map((score, key) => {
               return (
-                <h4 key={key}>
-                  {score.answerBody}: {score.count}{" "}
-                  {score.count === 1 ? "time" : "times"}
-                </h4>
+                <em>
+                  <h1 key={key}>
+                    {score.answerBody}: {score.count}{" "}
+                    {score.count === 1 ? "time" : "times"}
+                  </h1>
+                </em>
               );
             })}
             {yes >= 3 ? (
