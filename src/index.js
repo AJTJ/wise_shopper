@@ -12,6 +12,8 @@ import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import { store } from "./store";
 
+// "http://aaronjanke.com/ylcQuizzes",
+
 ReactDOM.render(
   <Provider store={store}>
     <BrowserRouter basename="/ylcQuizzes">

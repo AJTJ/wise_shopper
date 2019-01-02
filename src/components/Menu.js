@@ -155,15 +155,8 @@ const MyMenu = props => {
                   <Button onClick={() => resetScore()} component={wiseLink}>
                     Wise Consumer Quiz
                   </Button>
-                  <Button>
-                    <a
-                      href="https://www.yukonliteracy.com/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      style={{ color: "inherit", textDecoration: "none" }}
-                    >
-                      The YLC Website
-                    </a>
+                  <Button target="_blank" href="https://www.yukonliteracy.com/">
+                    The YLC Website
                   </Button>
                 </Grid>
               )}
