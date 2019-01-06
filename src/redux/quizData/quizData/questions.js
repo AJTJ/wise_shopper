@@ -4,16 +4,24 @@ export const questions = {
   needQuestion: {
     title: "",
     body: "Do I need it?",
+    explanations: [
+      "Having a NEED is something we can't live without like food, water, clothes etc.",
+      "Having a WANT is something we would like to have, but we can survive without it."
+    ],
     answerIds: answerIds
   },
   affordQuestion: {
     title: "",
     body: "Can I afford it?",
+    explanations: [
+      "This means you have enough money to pay for it without going into bad debt and/or not having the necessities of life."
+    ],
     answerIds: answerIds
   },
   valueQuestion: {
     title: "",
     body: "Does it add value to my life?",
+    explanations: ["Adding value  means buying it makes your life better."],
     answerIds: answerIds
   },
   companyResearchQuestion: {
@@ -31,7 +39,7 @@ export const questions = {
   returnRefundQuestion: {
     title: "",
     body:
-      "I ask about a store’s/online retailers return and refund policy before I buy things to make sure I can get a replacement or refund if I’m not satisfied with my purchase.",
+      "I ask about a store’s or an online retailers return and refund policy before I buy things to make sure I can get a replacement or refund if I’m not satisfied with my purchase.",
     answerIds: answerIds
   },
   couponsComparisonQuestion: {

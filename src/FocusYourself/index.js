@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import TextTrail from "./TextTrail";
-// import { BasicTransition } from "../reactTransitions/transitions";
 
 //MUI and styles
 import { Fade, Grid, ButtonBase } from "@material-ui/core";
@@ -12,26 +11,30 @@ import Menu from "../components/Menu";
 //other
 import { randomColor } from "../tools/randomColor";
 
-const FocusYourself = () => {
+const FocusYourself = props => {
+  console.log(props);
+  //STATE
   const [purchase, setPurchase] = useState(false);
   const [pause, setPause] = useState(false);
-  const [rest, setRest] = useState(false);
   const [breath, setBreath] = useState(false);
   const [choose, setChoose] = useState(false);
   const [menuDisplay, setMenuDisplay] = useState(false);
-  const [smile, setSmile] = useState(false);
   const [fadeTime, setFadeTime] = useState(false);
   const [menuIndicator, setMenuIndicator] = useState(false);
   const [bgColor, setBgColor] = useState("white");
 
+  //TEXT FOR SEQUENCE
   const purchaseText = "Making a purchase?".split(" ");
   const pauseText = "Pause...".split(" ");
-  const restText = "Rest...".split(" ");
   const breathText = "Take a Breath...".split(" ");
-  const chooseText = "Choose a Quiz.".split(" ");
-  const smileText = ":)".split(" ");
+  const chooseText = "Ask yourself.".split(" ");
+
+  //PROPS
+  const history = props.history;
 
   useEffect(() => {
+    let dismounted = false;
+
     const wait = delay => {
       return new Promise(resolve => {
         setTimeout(resolve, delay);
@@ -45,6 +48,7 @@ const FocusYourself = () => {
     };
 
     async function createSequence() {
+      dismounted = false;
       setPurchase(true);
       setFadeTime(true);
       //start
@@ -61,13 +65,7 @@ const FocusYourself = () => {
       setFadeTime(false);
       await wait(500);
       //reset
-      trans(setPause, setRest);
-      await wait(2000);
-      //fadeout
-      setFadeTime(false);
-      await wait(500);
-      //reset
-      trans(setRest, setBreath);
+      trans(setPause, setBreath);
       await wait(2000);
       //fadeout
       setFadeTime(false);
@@ -77,9 +75,14 @@ const FocusYourself = () => {
       setMenuDisplay(true);
       setMenuIndicator(false);
       await wait(2000);
-      setSmile(true);
+      if (dismounted === false) {
+        history.push(`/shoppingQuiz/1/question`);
+      }
     }
     createSequence();
+    return function cleanup() {
+      dismounted = true;
+    };
   }, []);
 
   useEffect(
@@ -94,7 +97,7 @@ const FocusYourself = () => {
       style={{
         background: bgColor,
         transition: "all 2s",
-        height: "100vh"
+        minHeight: "100vh"
       }}
     >
       <Fade in={menuDisplay} timeout={3000}>
@@ -109,14 +112,9 @@ const FocusYourself = () => {
           }}
         >
           {purchase && <TextTrail items={purchaseText} fadeProp={fadeTime} />}
-
           {pause && <TextTrail items={pauseText} fadeProp={fadeTime} />}
-          {rest && <TextTrail items={restText} fadeProp={fadeTime} />}
           {breath && <TextTrail items={breathText} fadeProp={fadeTime} />}
           {choose && <TextTrail items={chooseText} fadeProp={fadeTime} />}
-        </div>
-        <div>
-          <TextTrail items={smileText} fadeProp={smile} />
         </div>
       </QuizGrid>
       <Fade in={menuIndicator}>

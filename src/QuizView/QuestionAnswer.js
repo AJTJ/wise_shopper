@@ -15,25 +15,19 @@ export const QuestionAnswer = props => {
   const question = quizData.questionsById[questionId];
 
   const QuestionDisplay = props => {
-    const body = props.body;
+    const { body, explanations } = props.question;
     return (
       <React.Fragment>
-        {stepMinusOne === 0 && props.currentQuizId === "shoppingQuiz" && (
-          <h3>
-            <em>Shopping is challening, consider the following </em>
-            <h1 style={{ display: "inline" }}>three questions</h1>
-            <em> before making a decision:</em>
-          </h3>
-        )}
         {stepMinusOne === 0 && props.currentQuizId === "wiseQuiz" && (
           <h3>
-            <em>
-              The following five questions were created to provide you with some
-              tips and tools on how to become a better shopper:
-            </em>
+            <em>Are you a wise shopper? Take the quiz!</em>
           </h3>
         )}
         <h1>{body}</h1>
+        {explanations &&
+          explanations.map((exp, key) => {
+            return <h2 key={key}>{exp}</h2>;
+          })}
       </React.Fragment>
     );
   };
@@ -63,7 +57,7 @@ export const QuestionAnswer = props => {
 
   return (
     <React.Fragment>
-      <QuestionDisplay body={question.body} {...props} />
+      <QuestionDisplay question={question} {...props} />
 
       <Grid>
         {answerIds.map((current_id, key) => (

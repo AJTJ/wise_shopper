@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 
 import "animate.css";
 
+import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
 import "./styles/global.css";
 
 import App from "./App";
@@ -14,10 +15,19 @@ import { store } from "./store";
 
 // "http://aaronjanke.com/ylcQuizzes",
 
+const theme = createMuiTheme({
+  typography: {
+    useNextVariants: true
+    // fontFamily: ["Inconsolata"].join(",")
+  }
+});
+
 ReactDOM.render(
   <Provider store={store}>
     <BrowserRouter basename="/ylcQuizzes">
-      <App />
+      <MuiThemeProvider theme={theme}>
+        <App />
+      </MuiThemeProvider>
     </BrowserRouter>
   </Provider>,
   document.getElementById("root")

@@ -10,7 +10,7 @@ export const BackgroundGrid = ({ alpha, children }) => {
       style={{
         backgroundColor: randomColor(alpha),
         transition: "all 1s",
-        height: "100vh"
+        minHeight: "100vh"
       }}
     >
       {children}
@@ -32,8 +32,8 @@ export const QuizGrid = props => {
         paddingTop: "75px",
         paddingBottom: "10px",
         paddingRight: "20px",
-        paddingLeft: "20px",
-        maxHeight: "600px"
+        paddingLeft: "20px"
+        // maxHeight: "600px"
       }}
     >
       {props.children}
@@ -49,6 +49,22 @@ export const MyCard = ({ opacity, children }) => {
         backgroundColor: `rgba(255,255,255,${opacity})`,
         padding: "25px",
         minWidth: "300px"
+      }}
+    >
+      {children}
+    </MCard>
+  );
+};
+
+export const TipCard = ({ opacity, children }) => {
+  return (
+    <MCard
+      style={{
+        fontFamily: "Thasidth, sans-serif",
+        borderRadius: "5px",
+        backgroundColor: `rgba(255,255,255,${opacity})`,
+        padding: "10px",
+        boxShadow: "none"
       }}
     >
       {children}
