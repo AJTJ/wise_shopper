@@ -12,7 +12,6 @@ import Menu from "../components/Menu";
 import { randomColor } from "../tools/randomColor";
 
 const FocusYourself = props => {
-  console.log(props);
   //STATE
   const [purchase, setPurchase] = useState(false);
   const [pause, setPause] = useState(false);

@@ -17,7 +17,8 @@ import Menu from "../components/Menu";
 import { Grid, Fade } from "@material-ui/core";
 import { MyCard, QuizGrid, BackgroundGrid } from "../styles/layout";
 
-//tools
+//ICON
+const backIcon = require("../resources/back-arrow-grey.svg");
 
 const QuizView = props => {
   //state
@@ -58,6 +59,26 @@ const QuizView = props => {
     [stepTrans]
   );
 
+  const BackButton = () => {
+    return (
+      <span
+        onClick={() => props.history.goBack()}
+        style={{
+          position: "absolute",
+          top: 3,
+          left: 5,
+          cursor: "pointer"
+        }}
+      >
+        <img
+          style={{ height: "20px", width: "20px", color: "red" }}
+          src={backIcon}
+          alt=""
+        />
+      </span>
+    );
+  };
+
   return (
     <BackgroundGrid alpha={0.3}>
       <Menu />
@@ -71,6 +92,7 @@ const QuizView = props => {
 
         {view === "question" && (
           <MyCard opacity="0.8">
+            {stepMinusOne !== 0 && <BackButton />}
             <Fade in={questionTrans} timeout={1000}>
               <Grid
                 container
@@ -94,6 +116,7 @@ const QuizView = props => {
         )}
         {view === "answer" && (
           <MyCard opacity="0.8">
+            <BackButton />
             <Fade in={answerTrans} timeout={1000}>
               <Grid
                 container

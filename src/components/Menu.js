@@ -46,28 +46,6 @@ const MyMenu = props => {
     setAnchorEl(null);
   };
 
-  // const MenuContents = () => {
-  //   return (
-  //     <React.Fragment>
-  //       <Button component={introLink}>The Intro</Button>
-  //       <Button onClick={() => resetScore()} component={shoppingLink}>
-  //         Shopping Quiz
-  //       </Button>
-  //       <Button onClick={() => resetScore()} component={wiseLink}>
-  //         Wise Consumer Quiz
-  //       </Button>
-  //       <a
-  //         href="https://www.yukonliteracy.com/"
-  //         target="_blank"
-  //         rel="noopener noreferrer"
-  //         style={{ color: "inherit", textDecoration: "none" }}
-  //       >
-  //         <Button>The YLC Website</Button>
-  //       </a>
-  //     </React.Fragment>
-  //   );
-  // };
-
   const Logo = () => (
     <a
       href="https://www.yukonliteracy.com/"

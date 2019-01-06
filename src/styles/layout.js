@@ -45,6 +45,7 @@ export const MyCard = ({ opacity, children }) => {
   return (
     <MCard
       style={{
+        position: "relative",
         borderRadius: "10px",
         backgroundColor: `rgba(255,255,255,${opacity})`,
         padding: "25px",

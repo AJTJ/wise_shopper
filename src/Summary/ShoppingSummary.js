@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
-import { Fade } from "@material-ui/core";
+import { Fade, Button } from "@material-ui/core";
+
+import { TipCard } from "../styles/layout";
 
 export default props => {
   const [mounted, setMounted] = useState(false);
@@ -17,6 +20,29 @@ export default props => {
           purchasing <em>right now</em>.
         </h2>
         <h2>If you did... then go for it!</h2>
+
+        <div
+          style={{
+            borderRadius: "5px",
+            padding: "10px",
+            border: "1px solid black",
+            display: "inline-block",
+            background: "white"
+          }}
+        >
+          <h2 style={{ margin: 0 }}>Are you a wise shopper? </h2>
+          <div style={{ paddingBottom: "5px" }}>
+            <Link
+              style={{
+                color: "inherit",
+                textDecoration: "none"
+              }}
+              to="/wiseQuiz/1/question"
+            >
+              <Button>Take the Wise Shopper Quiz </Button>
+            </Link>
+          </div>
+        </div>
       </div>
     </Fade>
   );
