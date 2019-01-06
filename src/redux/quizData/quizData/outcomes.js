@@ -23,7 +23,7 @@ export const outcomes = {
   noAfford: {
     label: "",
     body:
-      "It’s okay, you can find second hand boots this year and save to take a trip somewhere warm next year. Save by using our budgeting tool.",
+      "It’s okay, you can find second hand boots this year and save to take a trip somewhere warm next year. Save by using our budgeting tool: ",
     link: "http://ylcbudget.com/",
     questionIds: questionIds
   },

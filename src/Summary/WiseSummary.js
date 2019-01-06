@@ -117,27 +117,27 @@ const WiseSummary = props => {
                 >
                   <div style={{ fontWeight: 200 }}>
                     <TipCard>
-                      <h3 style={{ fontWeight: 200, paddingBottom: "10px" }}>
+                      <h3 style={{ paddingBottom: "10px" }}>
                         <p>Tip: {tips.talkToPeople.body}</p>
                       </h3>
-                      <h3 style={{ fontWeight: 200, paddingBottom: "10px" }}>
+                      <h3 style={{ paddingBottom: "10px" }}>
                         <p>Tip: {tips.groceryPhone.body}</p>
                       </h3>
-                      <h3 style={{ fontWeight: 200, paddingBottom: "10px" }}>
+                      <h3 style={{ paddingBottom: "10px" }}>
                         <p>Tip: {tips.lookForSales.body}</p>
                       </h3>
-                      <h3 style={{ fontWeight: 200, paddingBottom: "10px" }}>
+                      <h3 style={{ paddingBottom: "10px" }}>
                         <p>Tip: {tips.keepReceipts.body}</p>
                       </h3>
 
                       <div
                         style={{
                           borderRadius: "5px",
-                          padding: "10px",
+                          padding: "12px",
                           border: "1px solid lightgrey"
                         }}
                       >
-                        <h3 style={{ fontWeight: 200 }}>
+                        <h3 style={{ paddingBottom: "5px" }}>
                           <p>Tip: {tips.unitMath.body}</p>
                         </h3>
                         <p>{tips.unitMath.math}</p>

@@ -10,6 +10,7 @@ import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 
 import { BrowserRouter } from "react-router-dom";
+import ScrollToTop from "./ScrollToTop";
 import { Provider } from "react-redux";
 import { store } from "./store";
 
@@ -26,7 +27,9 @@ ReactDOM.render(
   <Provider store={store}>
     <BrowserRouter basename="/ylcQuizzes">
       <MuiThemeProvider theme={theme}>
-        <App />
+        <ScrollToTop>
+          <App />
+        </ScrollToTop>
       </MuiThemeProvider>
     </BrowserRouter>
   </Provider>,

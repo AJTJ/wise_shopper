@@ -38,10 +38,9 @@ export const Outcome = props => {
             <em>{outcome.pre}</em>
           </h2>
         )}
-        <h1>{outcome.body}</h1>
-        {outcome.link && (
-          <React.Fragment>
-            {" "}
+        <h1>
+          {outcome.body}
+          {outcome.link && (
             <a
               target="_blank"
               rel="noopener noreferrer"
@@ -50,13 +49,13 @@ export const Outcome = props => {
             >
               here.
             </a>
-          </React.Fragment>
-        )}
+          )}
+        </h1>
       </React.Fragment>
 
-      <TipCard>
-        {quizData[currentQuizId][stepMinusOne].tipIds !== undefined &&
-          quizData[currentQuizId][stepMinusOne].tipIds.map((tip, key) => {
+      {quizData[currentQuizId][stepMinusOne].tipIds !== undefined && (
+        <TipCard>
+          {quizData[currentQuizId][stepMinusOne].tipIds.map((tip, key) => {
             const curTip = quizData.tipsById[tip];
             return (
               <h3 style={{ fontWeight: 200 }} key={key}>
@@ -83,7 +82,8 @@ export const Outcome = props => {
               </h3>
             );
           })}
-      </TipCard>
+        </TipCard>
+      )}
       <div>
         {visualStep > 1 && (
           <Button
