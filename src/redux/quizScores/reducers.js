@@ -3,7 +3,7 @@ import * as constants from "./constants";
 // wiseQuizScore: { 0: 2, 1: 2, 2: 2, 3: 2, 4: 2 }
 
 const defaultState = {
-  wiseQuizScore: { 0: 2, 1: 2, 2: 2, 3: 2, 4: 2 }
+  wiseQuizScore: {}
 };
 
 const scoreReducer = (state = defaultState, action) => {
