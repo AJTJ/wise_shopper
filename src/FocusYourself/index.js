@@ -25,8 +25,8 @@ const FocusYourself = props => {
   //TEXT FOR SEQUENCE
   const purchaseText = "Making a purchase?".split(" ");
   const pauseText = "Pause...".split(" ");
-  const breathText = "Take a Breath...".split(" ");
-  const chooseText = "Ask yourself.".split(" ");
+  const breathText = "Take a breath...".split(" ");
+  const chooseText = "Ask yourself".split(" ");
 
   //PROPS
   const history = props.history;
@@ -51,21 +51,21 @@ const FocusYourself = props => {
       setPurchase(true);
       setFadeTime(true);
       //start
-      await wait(3000);
+      await wait(2000);
       //fadeout
       setFadeTime(false);
       await wait(500);
       //reset
       trans(setPurchase, setPause);
-      await wait(500);
+      await wait(1000);
       setMenuIndicator(true);
-      await wait(1500);
+      await wait(250);
       //fadeout
       setFadeTime(false);
       await wait(500);
       //reset
       trans(setPause, setBreath);
-      await wait(2000);
+      await wait(1000);
       //fadeout
       setFadeTime(false);
       await wait(500);
@@ -73,7 +73,7 @@ const FocusYourself = props => {
       trans(setBreath, setChoose);
       setMenuDisplay(true);
       setMenuIndicator(false);
-      await wait(2000);
+      await wait(1500);
       if (dismounted === false) {
         history.push(`/shoppingQuiz/1/question`);
       }
@@ -84,12 +84,9 @@ const FocusYourself = props => {
     };
   }, []);
 
-  useEffect(
-    () => {
-      setBgColor(randomColor(0.1));
-    },
-    [purchase, menuDisplay]
-  );
+  useEffect(() => {
+    setBgColor(randomColor(0.1));
+  }, [purchase, menuDisplay]);
 
   return (
     <Grid

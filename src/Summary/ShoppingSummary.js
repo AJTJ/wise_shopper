@@ -3,8 +3,6 @@ import { Link } from "react-router-dom";
 
 import { Fade, Button } from "@material-ui/core";
 
-import { TipCard } from "../styles/layout";
-
 export default props => {
   const [mounted, setMounted] = useState(false);
 

@@ -36,28 +36,22 @@ const QuizView = props => {
   ];
   const quizLength = quizData[currentQuizId].length;
 
-  useEffect(
-    () => {
-      if (view === "question") {
-        setQuestionTrans(true);
-      } else {
-        setQuestionTrans(false);
-      }
-      if (view === "answer") {
-        setAnswerTrans(true);
-      } else {
-        setAnswerTrans(false);
-      }
-    },
-    [view, step]
-  );
+  useEffect(() => {
+    if (view === "question") {
+      setQuestionTrans(true);
+    } else {
+      setQuestionTrans(false);
+    }
+    if (view === "answer") {
+      setAnswerTrans(true);
+    } else {
+      setAnswerTrans(false);
+    }
+  }, [view, step]);
 
-  useEffect(
-    () => {
-      setStepTrans(true);
-    },
-    [stepTrans]
-  );
+  useEffect(() => {
+    setStepTrans(true);
+  }, [stepTrans]);
 
   const BackButton = () => {
     return (
@@ -65,8 +59,8 @@ const QuizView = props => {
         onClick={() => props.history.goBack()}
         style={{
           position: "absolute",
-          top: 3,
-          left: 5,
+          top: 10,
+          left: 10,
           cursor: "pointer"
         }}
       >

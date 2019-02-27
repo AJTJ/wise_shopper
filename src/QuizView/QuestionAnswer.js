@@ -66,7 +66,12 @@ export const QuestionAnswer = props => {
             setAnswerKey={setAnswerKey}
             answerKey={key}
             stepMinusOne={stepMinusOne}
-            body={quizData.answersById[current_id].body}
+            body={
+              (stepMinusOne === 0 &&
+                props.currentQuizId === "shoppingQuiz" &&
+                quizData.answersById[current_id].altBody) ||
+              quizData.answersById[current_id].body
+            }
             {...props}
           />
         ))}

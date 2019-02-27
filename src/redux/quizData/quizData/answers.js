@@ -4,6 +4,7 @@ export const answers = {
   yesAnswer: {
     label: "",
     body: "Yes",
+    altBody: "Need",
     outcomeIds: outcomeIds
   },
   sometimesAnswer: {
@@ -14,6 +15,7 @@ export const answers = {
   noAnswer: {
     label: "",
     body: "No",
+    altBody: "Want",
     outcomeIds: outcomeIds
   }
 };

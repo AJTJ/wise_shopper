@@ -29,11 +29,12 @@ export const tips = {
       "To figure out the unit price, divide the cost of the item by the number of units.",
     exampleTitle: "For example:",
     math: "Cost ÷ units bought = unit cost",
-    example1: 'Milk "A" costs $3 for 1 litre $3 ÷ 1 litre = $3 per litre',
-    example2:
-      'Milk "B" costs $4.50 for 2 litres $4.50 ÷ 2 litres = $2.25 per litre',
+    example1: 'Milk "A" costs $3 for 1 litre.',
+    example1_b: "$3 ÷ 1 litre = $3 per litre",
+    example2: 'Milk "B" costs $4.50 for 2 litres.',
+    example2_b: "$4.50 ÷ 2 litres = $2.25 per litre",
     exampleSummary:
-      'Milk "B" is a better deal. Even though the total cost is more, it costs less per unit. It makes sense to buy the 2 litre jug if you think you can use it up before its expiry date.'
+      'Milk "B" is a better deal. Even though the total cost of Milk "B" is more, it still costs less per unit. It makes sense to buy the 2 litre jug if you think you can use it up before its expiry date.'
   },
   advertisers: {
     label: "",

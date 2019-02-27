@@ -4,39 +4,37 @@ export const outcomes = {
   needDefinition: {
     label: "",
     body:
-      "e.g. You live in the north, in the winter it can be-45! You NEED a parka, warm boots, a hat and mitts.",
+      "A need is something you have to have in order to survive. Food, water and shelter are all needs.",
     questionIds: questionIds
   },
   wantDefinition: {
     label: "",
     // pre: "Then you must want it.",
     body:
-      "e.g. You live in the north  the winters are long and dark. This winter you WANT to buy a ticket to go somewhere warm.",
-    questionIds: questionIds
-  },
-  yesAfford: {
-    label: "",
-    body:
-      "Excellent!. You have enough money to buy new warm boots and to take a trip somewhere warm. Have fun!",
-    questionIds: questionIds
-  },
-  noAfford: {
-    label: "",
-    body:
-      "It’s okay, you can find second hand boots this year and save to take a trip somewhere warm next year. Save by using our budgeting tool: ",
-    link: "http://ylcbudget.com/",
+      "A want is something we would like to have but can survive without it. Holidays, eating at restaurants, or getting a tattoo are all wants.",
     questionIds: questionIds
   },
   yesValue: {
     label: "",
-    body:
-      "You can enjoy being on the land this winter in your new warm winter gear and buying a ticket to go somewhere warm helps you get through the winter. You decide what makes you happy.",
+    body: "Awesome! This purchase makes your life better.",
     questionIds: questionIds
   },
   noValue: {
     label: "",
     body:
-      "If it doesn’t make your life better, it’s not worth buying. Don’t buy unless you can use it and/or it brings you joy. You decide what makes you happy.",
+      "If it doesn’t make your life better, it’s not worth buying. Don’t buy it unless you can use it and/or it brings you joy.",
+    questionIds: questionIds
+  },
+  yesAfford: {
+    label: "",
+    body: "Excellent! It’s important to live within your budget.",
+    questionIds: questionIds
+  },
+  noAfford: {
+    label: "",
+    body:
+      "Don’t buy it! Try saving to buy it at a later date. Try our budgeting tool for help managing your money ",
+    link: "http://ylcbudget.com/",
     questionIds: questionIds
   },
   yesCompanyResearch: {
@@ -104,7 +102,7 @@ export const outcomes = {
   },
   noCouponsComparison: {
     label: "",
-    body: "You are missing out on great savings. Read the tip.",
+    body: "You are missing out on great savings.",
     questionIds: questionIds
   },
   yesFoodComparison: {

@@ -26,14 +26,6 @@ export const Outcome = props => {
     return;
   };
 
-  // let backStep = () => {
-  //   if (visualStep === 1) {
-  //     history.push(`/${currentQuizId}/${visualStep}/question`);
-  //   } else {
-  //     history.push(`/${currentQuizId}/${visualStep - 1}/question`);
-  //   }
-  // };
-
   return (
     <React.Fragment>
       <React.Fragment>
@@ -71,6 +63,7 @@ export const Outcome = props => {
                 {curTip.example1 && (
                   <React.Fragment>
                     <p>{curTip.example1}</p>
+                    <p>{curTip.example1_b}</p>
                     <img src={smallMilk} alt="" />
                     <p style={{ fontSize: "10px", color: "grey" }}>Milk "A"</p>
                   </React.Fragment>
@@ -78,6 +71,7 @@ export const Outcome = props => {
                 {curTip.example2 && (
                   <React.Fragment>
                     <p>{curTip.example2}</p>
+                    <p>{curTip.example2_b}</p>
                     <img src={bigMilk} alt="" />
                     <p style={{ fontSize: "10px", color: "grey" }}>Milk "B"</p>
                   </React.Fragment>
@@ -88,16 +82,7 @@ export const Outcome = props => {
           })}
         </TipCard>
       )}
-      <div>
-        {/* <Button
-          onClick={() => {
-            props.setStepTrans(false);
-            backStep();
-          }}
-        >
-          <h2>Back</h2>
-        </Button> */}
-
+      <div style={{ paddingTop: "5px" }}>
         <Button
           onClick={() => {
             props.setStepTrans(false);

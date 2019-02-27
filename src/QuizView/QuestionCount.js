@@ -13,29 +13,29 @@ export default ({ stepTrans, step, quizLength }) => {
         }}
       >
         <Fade in={stepTrans} timeout={{ enter: 1000, exit: 0 }}>
-          <h2>{step}</h2>
+          <h1>{step}</h1>
         </Fade>
       </div>
       <div
         style={{
           position: "absolute",
-          top: 15,
-          right: 30
+          top: 20,
+          right: 20
         }}
       >
         <Fade in={!!step} timeout={1000}>
-          <h3>/</h3>
+          <h4>/</h4>
         </Fade>
       </div>
       <div
         style={{
           position: "absolute",
           top: 30,
-          right: 20
+          right: 8
         }}
       >
         <Fade in={!!step} timeout={1000}>
-          <h3>{quizLength}</h3>
+          <h4>{quizLength}</h4>
         </Fade>
       </div>
     </React.Fragment>
