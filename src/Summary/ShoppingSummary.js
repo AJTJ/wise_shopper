@@ -28,7 +28,7 @@ export default props => {
             background: "white"
           }}
         >
-          <h2 style={{ margin: 0 }}>Are you a wise shopper? </h2>
+          <h2 style={{ margin: 0 }}>Are you a wise consumer? </h2>
           <div style={{ paddingBottom: "5px" }}>
             <Link
               style={{
@@ -37,7 +37,7 @@ export default props => {
               }}
               to="/wiseQuiz/1/question"
             >
-              <Button>Take the Wise Shopper Quiz </Button>
+              <Button>Take the Wise Consumer Quiz </Button>
             </Link>
           </div>
         </div>

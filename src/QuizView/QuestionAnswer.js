@@ -20,7 +20,7 @@ export const QuestionAnswer = props => {
       <React.Fragment>
         {stepMinusOne === 0 && props.currentQuizId === "wiseQuiz" && (
           <h3>
-            <em>Are you a wise shopper? Take the quiz!</em>
+            <em>Are you a wise consumer? Take the quiz!</em>
           </h3>
         )}
         <h1>{body}</h1>

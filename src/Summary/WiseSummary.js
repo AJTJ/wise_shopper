@@ -100,13 +100,13 @@ const WiseSummary = props => {
             ) : (yes <= 2 && sometimes >= 2 && no <= 2) ||
               (yes === 2 && no === 2) ? (
               <h2>
-                You are a good shopper but paying a bit more attention to how
+                You are a good consumer but paying a bit more attention to how
                 you spend your money will help you save more!
               </h2>
             ) : (
               <React.Fragment>
                 <h2>
-                  You’ve taken the first step to becoming a wise shopper by
+                  You’ve taken the first step to becoming a wise consumer by
                   completing this quiz! Step two: follow these tips!
                 </h2>
                 <Grid
