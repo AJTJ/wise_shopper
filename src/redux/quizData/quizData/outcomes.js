@@ -52,7 +52,7 @@ export const outcomes = {
   noCompanyResearch: {
     label: "",
     body:
-      "Shopping Alert! You are at High Risk of being very disappointed with your purchase.",
+      "Shopping Alert! You are at high risk of being very disappointed with your purchase.",
     questionIds: questionIds
   },
   yesGroceryList: {
