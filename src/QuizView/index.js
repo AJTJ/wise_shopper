@@ -160,7 +160,4 @@ const mapDispatchToProps = {
   ...actions
 };
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(QuizView);
+export default connect(mapStateToProps, mapDispatchToProps)(QuizView);

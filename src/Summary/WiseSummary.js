@@ -12,6 +12,8 @@ import { actions } from "../redux";
 //Layout
 import { TipCard, MyCard } from "../styles/layout";
 
+import { ShoppingQuizLinkComponent } from "../components/WiseQuizLink";
+
 //Images
 const smallMilk = require("../resources/small_milk.png");
 const bigMilk = require("../resources/big_milk.png");
@@ -165,6 +167,7 @@ const WiseSummary = props => {
                 </Grid>
               </React.Fragment>
             )}
+            <ShoppingQuizLinkComponent />
           </div>
         )}
       </MyCard>
@@ -183,7 +186,4 @@ const mapDispatchToProps = {
   ...actions
 };
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(WiseSummary);
+export default connect(mapStateToProps, mapDispatchToProps)(WiseSummary);

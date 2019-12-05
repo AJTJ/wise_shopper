@@ -26,7 +26,7 @@ const FocusYourself = props => {
   const purchaseText = "Making a purchase?".split(" ");
   const pauseText = "Pause...".split(" ");
   const breathText = "Take a breath...".split(" ");
-  const chooseText = "Ask yourself".split(" ");
+  const chooseText = "...and take one of our shopping quizzes.".split(" ");
 
   //PROPS
   const history = props.history;
@@ -73,9 +73,9 @@ const FocusYourself = props => {
       trans(setBreath, setChoose);
       setMenuDisplay(true);
       setMenuIndicator(false);
-      await wait(1500);
+      await wait(2500);
       if (dismounted === false) {
-        history.push(`/shoppingQuiz/1/question`);
+        history.push(`/introduction`);
       }
     }
     createSequence();
