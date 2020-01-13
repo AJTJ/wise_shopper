@@ -11,7 +11,7 @@ export const outcomes = {
     label: "",
     // pre: "Then you must want it.",
     body:
-      "A want is something we would like to have but can survive without it. Holidays, eating at restaurants, or getting a tattoo are all wants.",
+      "A want is something we would like to have but can survive without it. Taking vacations, eating at restaurants, or getting a tattoo are all wants.",
     questionIds: questionIds
   },
   yesValue: {
